@@ -112,6 +112,14 @@
   padding: clamp(70px, 12vw, 150px) clamp(20px, 5vw, 48px) clamp(48px, 7vw, 90px);
   scroll-margin-top: 72px;
 }
+.pf-hero-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  margin: 0 0 20px;
+}
 .pf-hero-meta {
   font-family: var(--mono);
   font-size: 13px;

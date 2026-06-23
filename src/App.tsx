@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { ReactNode, MouseEvent } from "react";
-import { Mail, Github, Linkedin, FileText, ArrowUpRight, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUpRight, MapPin } from "lucide-react";
 import "./portfolio.css";
 
 // ─────────────────────────────────────────────────────────────
@@ -16,8 +16,7 @@ const PROFILE = {
   availability: "Open to senior / staff roles",
   email: "kevinciang1006@gmail.com",
   github: "https://github.com/kevinciang1006", // ← verify your handle
-  linkedin: "https://linkedin.com/in/kevinciang", // ← change to your real profile
-  resume: "/resume.pdf", // ← drop a resume.pdf in /public
+  linkedin: "https://www.linkedin.com/in/kevinciang1006/",
 };
 
 interface Job {
@@ -201,6 +200,7 @@ export default function App() {
         {/* HERO */}
         <section className="pf-hero">
           <div className="pf-hero-inner pf-load">
+            <img src="/profile.jpeg" alt={PROFILE.name} className="pf-hero-avatar" />
             <p className="pf-hero-meta">
               <MapPin size={13} strokeWidth={2} />
               {PROFILE.role} · {PROFILE.location}
@@ -217,9 +217,6 @@ export default function App() {
               </a>
               <a className="pf-btn" href={PROFILE.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin size={16} strokeWidth={2} /> LinkedIn
-              </a>
-              <a className="pf-btn" href={PROFILE.resume} target="_blank" rel="noreferrer">
-                <FileText size={16} strokeWidth={2} /> Résumé
               </a>
             </div>
 
