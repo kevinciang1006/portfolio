@@ -1,0 +1,425 @@
+.pf-root {
+  --ink: #16181d;
+  --ink-soft: #3c4150;
+  --muted: #71757e;
+  --line: #e7e8eb;
+  --paper: #ffffff;
+  --paper-2: #f7f7f9;
+  --accent: #3047d9;
+  --accent-tint: #eef0fd;
+  --max: 920px;
+  --display: "Space Grotesk", system-ui, sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+.pf-root * {
+  box-sizing: border-box;
+}
+.pf-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAV */
+.pf-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px clamp(20px, 5vw, 48px);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.pf-nav-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+.pf-nav-dot {
+  color: var(--accent);
+}
+.pf-nav-links {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--muted);
+}
+.pf-nav-links a {
+  transition: color 0.15s ease;
+}
+.pf-nav-links a:hover {
+  color: var(--ink);
+}
+.pf-nav-cta {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: all 0.15s ease;
+}
+.pf-nav-cta:hover {
+  border-color: var(--ink);
+}
+
+/* LAYOUT */
+.pf-section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 72px;
+}
+.pf-section--narrow {
+  max-width: 720px;
+}
+
+/* EYEBROW */
+.pf-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 28px;
+}
+.pf-eyebrow-tick {
+  width: 16px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* HERO */
+.pf-hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(70px, 12vw, 150px) clamp(20px, 5vw, 48px) clamp(48px, 7vw, 90px);
+  scroll-margin-top: 72px;
+}
+.pf-hero-meta {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 26px;
+}
+.pf-hero-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+  max-width: 16ch;
+}
+.pf-hero-sub {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin: 0 0 34px;
+}
+
+.pf-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pf-root a.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  background: var(--paper);
+  color: var(--ink);
+}
+.pf-root a.pf-btn:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.pf-root a.pf-btn-primary {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.pf-root a.pf-btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.pf-availability {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 30px 0 0;
+}
+.pf-dot-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2bb673;
+  box-shadow: 0 0 0 4px rgba(43, 182, 115, 0.16);
+}
+
+/* ABOUT */
+.pf-about-text {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  max-width: 60ch;
+}
+.pf-about-text:last-child {
+  margin-bottom: 0;
+}
+
+/* EXPERIENCE */
+.pf-exp {
+  display: flex;
+  flex-direction: column;
+}
+.pf-exp-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 28px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+.pf-exp-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.pf-exp-period {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 3px;
+}
+.pf-exp-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pf-exp-company {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.pf-exp-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.pf-exp-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 4px 0 10px;
+}
+.pf-exp-summary {
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  max-width: 60ch;
+}
+
+/* TAGS */
+.pf-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+}
+.pf-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper-2);
+}
+
+/* WORK GRID */
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.pf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  transition: all 0.18s ease;
+}
+.pf-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -18px rgba(48, 71, 217, 0.4);
+}
+.pf-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pf-card-name {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.pf-card-arrow {
+  color: var(--muted);
+  transition: all 0.18s ease;
+}
+.pf-card:hover .pf-card-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+.pf-card-blurb {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+  flex: 1;
+}
+
+/* SKILLS */
+.pf-skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.pf-skill-group {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* CONTACT */
+.pf-contact-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.pf-contact-sub {
+  color: var(--ink-soft);
+  max-width: 50ch;
+  margin: 0 0 28px;
+}
+
+/* FOOTER */
+.pf-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px clamp(20px, 5vw, 48px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.pf-footer-mono {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* MOTION */
+.pf-load {
+  animation: pf-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.pf-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pf-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@keyframes pf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* FOCUS */
+.pf-root a:focus-visible,
+.pf-root button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+  .pf-nav-links {
+    display: none;
+  }
+  .pf-exp-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pf-grid {
+    grid-template-columns: 1fr;
+  }
+  .pf-skills {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-load,
+  .pf-reveal {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .pf-root a.pf-btn:hover,
+  .pf-card:hover {
+    transform: none;
+  }
+}
