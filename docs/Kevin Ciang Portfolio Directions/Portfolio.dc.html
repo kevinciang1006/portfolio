@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"><title>Kevin Ciang — Senior Software Engineer</title><style>html{scroll-behavior:smooth;scroll-padding-top:64px}body{margin:0;background:oklch(0.88 0.025 195);color:#1a1e22;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}a:hover{color:oklch(0.48 0.16 255)}a:focus-visible,button:focus-visible{outline:3px solid oklch(0.52 0.16 255);outline-offset:3px;border-radius:6px}button{font:inherit;color:inherit}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}</style></helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background-image:radial-gradient(rgba(26,30,34,.11) 1px,transparent 1px);background-size:22px 22px">
+
+<header data-boot="0" style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px;padding:10px clamp(16px,4vw,32px);background:rgba(250,250,248,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,30,34,.12);font-size:14px">
+  <nav aria-label="Primary" style="display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center">
+    <a href="#top" style="font-weight:700;text-decoration:none">kevin.os</a>
+    <a href="#work" style="text-decoration:none">Work</a>
+    <a href="#index" style="text-decoration:none">Index</a>
+    <a href="#experience" style="text-decoration:none">Experience</a>
+    <a href="#contact" style="text-decoration:none">Contact</a>
+  </nav>
+  <div style="display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;font-family:'DM Mono',monospace;font-size:12px">
+    <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:8px;height:8px;border-radius:50%;background:oklch(0.66 0.15 150)"></span>Open to senior/staff roles</span>
+    <span style="white-space:nowrap">Medan · {{ time }} WIB</span>
+  </div>
+</header>
+
+<main id="top" style="max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)">
+
+<!-- HERO -->
+<section aria-label="Introduction" style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;padding:clamp(28px,6vw,64px) 0 24px">
+  <div data-boot="1" style="flex:1 1 420px;min-width:0;max-width:600px;background:#fafaf8;border-radius:12px;box-shadow:0 24px 60px -28px rgba(20,40,50,.45),0 0 0 1px rgba(26,30,34,.1);position:relative;z-index:2">
+    <div style="display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px">about.md</span></div>
+    <div style="padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:20px">
+      <h1 style="margin:0;font-size:clamp(44px,7vw,76px);line-height:.95;font-weight:600;letter-spacing:-.035em">Kevin Ciang</h1>
+      <p style="margin:0;font-size:clamp(18px,2vw,21px);line-height:1.42;color:#3a434c;text-wrap:pretty">Senior software engineer with eight years in frontend, now building fullstack and AI applications for Singapore teams from Medan, Indonesia.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:15px;font-weight:500">
+        <a href="mailto:hello@kevinciang.com" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:9px;background:oklch(0.52 0.16 255);color:#fff;text-decoration:none">Email me</a>
+        <a href="https://github.com/" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:9px;background:#eceeef;text-decoration:none">GitHub</a>
+        <a href="https://linkedin.com/" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:9px;background:#eceeef;text-decoration:none">LinkedIn</a>
+        <a href="/resume.pdf" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:9px;background:#eceeef;text-decoration:none">Résumé.pdf</a>
+      </div>
+    </div>
+  </div>
+  <div aria-label="Open project windows" style="flex:1.15 1 380px;min-width:0;position:relative;aspect-ratio:1.12/1">
+    <sc-for list="{{ heroWins }}" as="p" hint-placeholder-count="3">
+      <div data-boot="{{ p.boot }}" style="position:absolute;left:{{ p.x }};top:{{ p.y }};width:{{ p.w }};z-index:{{ p.z }};transform:rotate({{ p.r }})">
+        <button type="button" onClick="{{ p.open }}" aria-label="Open {{ p.name }}" style="display:block;width:100%;padding:0;border:0;text-align:left;cursor:pointer;background:#fafaf8;border-radius:10px;box-shadow:0 24px 50px -24px rgba(20,40,50,.5),0 0 0 1px rgba(26,30,34,.1);transition:transform .25s" style-hover="transform:translateY(-4px)">
+          <span style="display:flex;align-items:center;gap:6px;padding:9px 12px;font-family:'DM Mono',monospace;font-size:11px;color:#5c6670;white-space:nowrap;overflow:hidden"><span style="flex:none;width:10px;height:10px;border-radius:50%;background:#d9dcdf"></span><span style="flex:none;width:10px;height:10px;border-radius:50%;background:#d9dcdf"></span><span style="flex:none;width:10px;height:10px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:8px;overflow:hidden;text-overflow:ellipsis">{{ p.name }} — {{ p.urlLabel }}</span></span>
+          <span style="display:block;position:relative;aspect-ratio:16/10;margin:0 6px 6px;border-radius:6px;overflow:hidden;background:oklch(0.84 0.06 {{ p.hue }})">
+            <span aria-hidden="true" style="position:absolute;inset:0;background:{{ p.bgImg }} center top / cover no-repeat"></span>
+            <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><span style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;gap:12px"><span style="width:clamp(36px,5vw,56px);aspect-ratio:1;border-radius:24%;background:oklch(0.5 0.12 {{ p.hue }});color:#fff;font-size:clamp(18px,2.4vw,26px);font-weight:700;display:flex;align-items:center;justify-content:center">{{ p.initial }}</span><span style="font-size:clamp(16px,2.2vw,24px);font-weight:600;color:oklch(0.32 0.08 {{ p.hue }})">{{ p.name }}</span></span></sc-if>
+          </span>
+        </button>
+      </div>
+    </sc-for>
+  </div>
+</section>
+<nav data-boot="5" aria-label="Project shortcuts" style="display:flex;flex-wrap:wrap;gap:6px;padding:0 0 clamp(32px,6vw,56px)">
+  <sc-for list="{{ dock }}" as="p" hint-placeholder-count="5">
+    <button type="button" onClick="{{ p.open }}" style="display:flex;flex-direction:column;align-items:center;gap:6px;width:88px;padding:8px 4px;border:0;border-radius:10px;background:transparent;cursor:pointer" style-hover="background:rgba(250,250,248,.6)">
+      <span style="width:48px;height:48px;border-radius:12px;background:oklch(0.6 0.1 {{ p.hue }});color:#fff;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)">{{ p.initial }}</span>
+      <span style="font-family:'DM Mono',monospace;font-size:11px;text-align:center;word-break:break-word">{{ p.name }}</span>
+    </button>
+  </sc-for>
+</nav>
+
+<!-- FEATURED -->
+<section id="work" aria-labelledby="work-h" style="padding-bottom:40px">
+  <div style="background:#fafaf8;border-radius:14px;box-shadow:0 0 0 1px rgba(26,30,34,.1),0 24px 60px -36px rgba(20,40,50,.5)">
+    <div style="display:flex;align-items:center;gap:7px;padding:12px 18px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px">~/featured</span></div>
+    <div style="padding:clamp(18px,3vw,28px) clamp(14px,3vw,28px) clamp(14px,3vw,28px)">
+      <h2 id="work-h" style="margin:0 0 20px;font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em">Featured work</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:16px">
+        <sc-for list="{{ featured }}" as="p" hint-placeholder-count="4">
+          <article style="flex:{{ p.flex }};min-width:0;display:flex;flex-direction:column;gap:14px;padding:8px;border-radius:12px;background:#eff1f1;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -20px rgba(20,40,50,.55)">
+            <button type="button" onClick="{{ p.open }}" aria-label="Open {{ p.name }} window" style="flex:1;min-height:clamp(200px,26vw,300px);display:flex;flex-direction:column;padding:0;border:0;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(26,30,34,.08);cursor:pointer;text-align:left">
+              <span style="display:flex;align-items:center;gap:8px;width:100%;box-sizing:border-box;padding:8px 12px;font-family:'DM Mono',monospace;font-size:11px;color:#7a838c;border-bottom:1px solid rgba(26,30,34,.06)"><span style="width:8px;height:8px;border-radius:50%;background:#d9dcdf"></span>{{ p.urlLabel }}</span>
+              <span style="flex:1;width:100%;display:block;position:relative;background:oklch(0.84 0.06 {{ p.hue }})">
+                <span aria-hidden="true" style="position:absolute;inset:0;background:{{ p.bgImg }} center top / cover no-repeat"></span>
+                <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:16px"><span style="flex:none;width:56px;height:56px;border-radius:14px;background:oklch(0.5 0.12 {{ p.hue }});color:#fff;font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ p.initial }}</span><span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-.02em;color:oklch(0.32 0.08 {{ p.hue }})">{{ p.name }}</span></span></sc-if>
+              </span>
+            </button>
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px;padding:0 8px 8px">
+              <div style="flex:1 1 220px;display:flex;flex-direction:column;gap:6px;min-width:0">
+                <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 style="margin:0;font-size:20px;font-weight:600;letter-spacing:-.015em">{{ p.name }}</h3><span style="font-family:'DM Mono',monospace;font-size:11px;color:#6b747d">{{ p.label }}</span></div>
+                <p style="margin:0;font-size:15px;color:#4c5660;line-height:1.45">{{ p.desc }}</p>
+                <ul aria-label="Tech" style="display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 0;padding:0;list-style:none"><sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="3"><li style="font-family:'DM Mono',monospace;font-size:11px;padding:4px 8px;border-radius:5px;background:#fff;color:#3a434c">{{ t }}</li></sc-for></ul>
+              </div>
+              <sc-if value="{{ p.href }}" hint-placeholder-val="{{ true }}"><a href="{{ p.href }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;min-height:40px;font-size:14px;font-weight:600;color:oklch(0.46 0.16 255);text-decoration:none;padding:0 14px;border-radius:8px;background:#fff">Visit live ↗</a></sc-if>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEX -->
+<section id="index" aria-labelledby="index-h" style="padding-bottom:40px">
+  <div style="background:#fafaf8;border-radius:14px;box-shadow:0 0 0 1px rgba(26,30,34,.1),0 24px 60px -36px rgba(20,40,50,.5)">
+    <div style="display:flex;align-items:center;gap:7px;padding:12px 18px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px;white-space:nowrap">~/projects — {{ countLabel }}</span></div>
+    <div style="padding:clamp(18px,3vw,28px) clamp(14px,3vw,28px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-bottom:20px">
+        <h2 id="index-h" style="margin:0;font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em">All projects</h2>
+        <div role="group" aria-label="View" style="display:flex;padding:3px;border-radius:9px;background:#eceeef">
+          <button type="button" onClick="{{ setGrid }}" aria-pressed="{{ isGrid }}" style="min-height:38px;padding:0 14px;border:0;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;background:{{ gridBg }}">Grid</button>
+          <button type="button" onClick="{{ setList }}" aria-pressed="{{ isList }}" style="min-height:38px;padding:0 14px;border:0;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;background:{{ listBg }}">List</button>
+        </div>
+      </div>
+      <div role="group" aria-label="Filter projects" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5">
+          <button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" style="display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:0;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;background:{{ c.bg }};color:{{ c.fg }}">{{ c.label }}<span style="font-family:'DM Mono',monospace;font-size:11px;opacity:.65">{{ c.count }}</span></button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
+        <ul style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:14px;margin:0;padding:0;list-style:none">
+          <sc-for list="{{ visible }}" as="p" hint-placeholder-count="8">
+            <li style="display:flex;flex-direction:column;border-radius:10px;background:#eff1f1;padding:6px;transition:transform .2s" style-hover="transform:translateY(-2px)">
+              <button type="button" onClick="{{ p.open }}" aria-label="Open {{ p.name }} window" style="display:block;width:100%;aspect-ratio:16/10;padding:0;border:0;border-radius:7px;overflow:hidden;position:relative;cursor:pointer;background:oklch(0.86 0.05 {{ p.hue }})">
+                <span aria-hidden="true" style="position:absolute;inset:0;background:{{ p.bgImg }} center top / cover no-repeat"></span>
+                <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px"><span style="flex:none;width:32px;height:32px;border-radius:9px;background:oklch(0.5 0.12 {{ p.hue }});color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ p.initial }}</span><span style="font-size:15px;font-weight:600;color:oklch(0.32 0.08 {{ p.hue }});overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.name }}</span></span></sc-if>
+              </button>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 6px 4px">
+                <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                  <span style="font-size:15px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.name }}</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:11px;color:#6b747d">{{ p.label }}</span>
+                </div>
+                <sc-if value="{{ p.href }}" hint-placeholder-val="{{ true }}"><a href="{{ p.href }}" target="_blank" rel="noopener" aria-label="Visit {{ p.name }} live" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#fff;text-decoration:none;font-size:14px">↗</a></sc-if>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+      </sc-if>
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+        <ul style="margin:0;padding:0;list-style:none;border-top:1px solid rgba(26,30,34,.1)">
+          <sc-for list="{{ visible }}" as="p" hint-placeholder-count="8">
+            <li style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:12px 4px;border-bottom:1px solid rgba(26,30,34,.1)">
+              <button type="button" onClick="{{ p.open }}" style="flex:1 1 260px;min-width:0;display:flex;align-items:center;gap:14px;padding:0;border:0;background:transparent;cursor:pointer;text-align:left">
+                <span style="flex:none;width:64px;height:40px;border-radius:6px;overflow:hidden;position:relative;background:oklch(0.84 0.06 {{ p.hue }});display:flex;align-items:center;justify-content:center;font-weight:700;color:oklch(0.35 0.1 {{ p.hue }})">
+                  <span aria-hidden="true" style="position:absolute;inset:0;background:{{ p.bgImg }} center top / cover no-repeat"></span>{{ p.initial }}
+                </span>
+                <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:16px;font-weight:600">{{ p.name }}</span><span style="font-size:14px;color:#56606a">{{ p.desc }}</span></span>
+              </button>
+              <span style="flex:0 1 220px;font-family:'DM Mono',monospace;font-size:11px;color:#56606a">{{ p.label }} · {{ p.tagStr }}</span>
+              <sc-if value="{{ p.href }}" hint-placeholder-val="{{ true }}"><a href="{{ p.href }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:8px;background:#eceeef;text-decoration:none;font-size:13px;font-weight:600">Visit live ↗</a></sc-if>
+              <sc-if value="{{ p.noHref }}" hint-placeholder-val="{{ false }}"><span style="flex:none;font-family:'DM Mono',monospace;font-size:11px;color:#6b747d;padding:0 12px">In progress</span></sc-if>
+            </li>
+          </sc-for>
+        </ul>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE + SKILLS -->
+<div style="display:flex;flex-wrap:wrap;gap:24px;padding-bottom:40px;align-items:flex-start">
+  <section id="experience" aria-labelledby="exp-h" style="flex:1.3 1 440px;min-width:0;background:#fafaf8;border-radius:14px;box-shadow:0 0 0 1px rgba(26,30,34,.1),0 24px 60px -36px rgba(20,40,50,.5)">
+    <div style="display:flex;align-items:center;gap:7px;padding:12px 18px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px">experience.log</span></div>
+    <div style="padding:clamp(18px,3vw,28px)">
+      <h2 id="exp-h" style="margin:0 0 18px;font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em">Experience</h2>
+      <ol style="margin:0;padding:0;list-style:none">
+        <sc-for list="{{ exp }}" as="e" hint-placeholder-count="4">
+          <li style="display:grid;grid-template-columns:20px minmax(0,1fr);gap:0 12px">
+            <span style="display:flex;flex-direction:column;align-items:center"><span style="width:11px;height:11px;margin-top:6px;border-radius:50%;background:{{ e.dot }};box-shadow:0 0 0 3px #fafaf8,0 0 0 4px rgba(26,30,34,.18)"></span><span style="flex:1;width:1px;background:rgba(26,30,34,.15)"></span></span>
+            <div style="padding:0 0 22px;display:flex;flex-direction:column;gap:3px">
+              <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;align-items:baseline"><h3 style="margin:0;font-size:18px;font-weight:600">{{ e.org }}</h3><span style="font-family:'DM Mono',monospace;font-size:12px;color:#6b747d">{{ e.when }}</span></div>
+              <span style="font-size:15px;color:#3a434c">{{ e.role }}</span>
+              <p style="margin:2px 0 0;font-size:14px;color:#6b747d;line-height:1.45">{{ e.note }}</p>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+  <section aria-labelledby="skills-h" style="flex:1 1 340px;min-width:0;background:#fafaf8;border-radius:14px;box-shadow:0 0 0 1px rgba(26,30,34,.1),0 24px 60px -36px rgba(20,40,50,.5)">
+    <div style="display:flex;align-items:center;gap:7px;padding:12px 18px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px">skills.json</span></div>
+    <div style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:22px">
+      <h2 id="skills-h" style="margin:0;font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em">Skills</h2>
+      <sc-for list="{{ skills }}" as="g" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h3 style="margin:0;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#5c6670">{{ g.name }}</h3>
+          <ul style="display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none"><sc-for list="{{ g.items }}" as="s" hint-placeholder-count="5"><li style="font-size:14px;padding:6px 11px;border-radius:7px;background:#eceeef">{{ s }}</li></sc-for></ul>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="contact-h" style="padding:clamp(24px,6vw,64px) 0 clamp(40px,8vw,88px);display:flex;justify-content:center">
+  <div role="presentation" style="width:100%;max-width:760px;background:#fafaf8;border-radius:16px;box-shadow:0 0 0 1px rgba(26,30,34,.1),0 40px 80px -36px rgba(20,40,50,.55)">
+    <div style="display:flex;align-items:center;gap:7px;padding:12px 18px;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670"><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="margin-left:10px">new-message</span></div>
+    <div style="padding:clamp(24px,5vw,48px);display:flex;flex-direction:column;gap:22px">
+      <h2 id="contact-h" style="margin:0;font-size:clamp(36px,6vw,60px);line-height:1;font-weight:600;letter-spacing:-.035em;text-wrap:balance">Hiring for a senior or staff role? Let’s talk.</h2>
+      <p style="margin:0;font-size:18px;line-height:1.45;color:#4c5660;text-wrap:pretty">Remote from Medan (UTC+7), same working hours as Singapore. I usually reply within a day.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <a href="mailto:hello@kevinciang.com" style="display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border-radius:10px;background:oklch(0.52 0.16 255);color:#fff;text-decoration:none;font-size:17px;font-weight:600">hello@kevinciang.com</a>
+        <button type="button" onClick="{{ copyEmail }}" style="min-height:52px;padding:0 18px;border:0;border-radius:10px;background:#eceeef;cursor:pointer;font-size:15px;font-weight:500">{{ copyLabel }}</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px 20px;padding-top:18px;border-top:1px solid rgba(26,30,34,.1);font-size:15px">
+        <a href="https://github.com/">GitHub</a><a href="https://linkedin.com/">LinkedIn</a><a href="/resume.pdf">Résumé (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer style="max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 28px;font-family:'DM Mono',monospace;font-size:12px;color:#4c5660">© 2026 Kevin Ciang · kevinciang.com</footer>
+
+<!-- LAUNCHED WINDOW -->
+<sc-if value="{{ isOpen }}" hint-placeholder-val="{{ false }}">
+  <div ref="{{ backRef }}" onClick="{{ onBackdrop }}" style="position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(20,35,40,.32);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)">
+    <div ref="{{ winRef }}" role="dialog" aria-modal="true" aria-labelledby="win-title" style="width:min(980px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#fafaf8;border-radius:12px;box-shadow:0 40px 100px -30px rgba(10,25,30,.6),0 0 0 1px rgba(26,30,34,.12)">
+      <div style="position:sticky;top:0;display:flex;align-items:center;gap:7px;padding:10px 12px 10px 16px;background:#fafaf8;border-bottom:1px solid rgba(26,30,34,.08);font-family:'DM Mono',monospace;font-size:12px;color:#5c6670">
+        <span style="width:11px;height:11px;border-radius:50%;background:oklch(0.66 0.17 27)"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span><span style="width:11px;height:11px;border-radius:50%;background:#d9dcdf"></span>
+        <span style="margin-left:10px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ cur.name }} — {{ cur.urlLabel }}</span>
+        <button type="button" ref="{{ closeRef }}" onClick="{{ close }}" style="min-height:36px;padding:0 12px;border:0;border-radius:7px;background:#eceeef;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:500">Close <span style="opacity:.6">Esc</span></button>
+      </div>
+      <div style="aspect-ratio:16/9;margin:8px;border-radius:8px;overflow:hidden;position:relative;background:oklch(0.84 0.06 {{ cur.hue }})">
+        <span aria-hidden="true" style="position:absolute;inset:0;background:{{ cur.bgImg }} center top / cover no-repeat"></span>
+        <sc-if value="{{ cur.noImg }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:18px"><span style="width:clamp(56px,9vw,88px);aspect-ratio:1;border-radius:22%;background:oklch(0.5 0.12 {{ cur.hue }});color:#fff;font-size:clamp(26px,4vw,40px);font-weight:700;display:flex;align-items:center;justify-content:center">{{ cur.initial }}</span><span style="font-size:clamp(26px,4.4vw,44px);font-weight:600;letter-spacing:-.03em;color:oklch(0.32 0.08 {{ cur.hue }})">{{ cur.name }}</span></span></sc-if>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:16px clamp(16px,3vw,28px) clamp(20px,3vw,28px)">
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:8px;min-width:0">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 id="win-title" style="margin:0;font-size:clamp(26px,4vw,36px);font-weight:600;letter-spacing:-.03em">{{ cur.name }}</h2><span style="font-family:'DM Mono',monospace;font-size:12px;color:#6b747d">{{ cur.label }}</span></div>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#4c5660">{{ cur.desc }}</p>
+          <ul style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0;padding:0;list-style:none"><sc-for list="{{ cur.tags }}" as="t" hint-placeholder-count="3"><li style="font-family:'DM Mono',monospace;font-size:12px;padding:5px 9px;border-radius:6px;background:#eceeef">{{ t }}</li></sc-for></ul>
+        </div>
+        <sc-if value="{{ cur.href }}" hint-placeholder-val="{{ true }}"><a href="{{ cur.href }}" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:10px;background:oklch(0.52 0.16 255);color:#fff;text-decoration:none;font-size:16px;font-weight:600">Visit live ↗</a></sc-if>
+        <sc-if value="{{ cur.noHref }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;font-family:'DM Mono',monospace;font-size:13px;color:#6b747d;padding:14px 0">In progress — no public link yet</span></sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;grid&quot;,&quot;list&quot;],&quot;default&quot;:&quot;grid&quot;,&quot;tsType&quot;:&quot;'grid'|'list'&quot;},&quot;bootAnimation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const PROJECTS = [
+  // img: 'shots/gavel.webp' — leave null until the screenshot exists; a broken path also falls back to the cover.
+  { key: 'gavel', name: 'gavel', url: 'gavel.kevinciang.com', cat: 'Demos', label: 'Demo', desc: 'Real-time auction room with live bidding.', tags: ['React', 'WebSockets', 'Node'], hue: 30, featured: 'L', img: null },
+  { key: 'grain', name: 'grain-archive', url: 'grain-archive.kevinciang.com', cat: 'Demos', label: 'Demo', desc: 'Film photo archive with EXIF search.', tags: ['Next.js', 'Postgres'], hue: 75, featured: 'S', img: null },
+  { key: 'home', name: 'homefinder', url: 'homefinder.kevinciang.com', cat: 'Demos', label: 'Demo', desc: 'Property search with map-first filters.', tags: ['React', 'Maps', 'Zustand'], hue: 160, featured: 'S', img: null },
+  { key: 'finboard', name: 'ng-finboard', url: 'ng-finboard.kevinciang.com', cat: 'Demos', label: 'Demo · Angular', desc: 'Finance dashboard built on Angular signals.', tags: ['Angular', 'RxJS', 'Charts'], hue: 255, featured: 'L', img: null },
+  { key: 'atlas', name: 'atlas', url: null, cat: 'AI', label: 'AI', desc: 'AI application. Details to come.', tags: ['LLM', 'TypeScript'], hue: 300, img: null },
+  { key: 'p1', name: 'product-a', url: 'example.com', cat: 'Products', label: 'Product', desc: 'Placeholder. Replace with a real project.', tags: ['React'], hue: 200, img: null },
+  { key: 'p2', name: 'product-b', url: 'example.com', cat: 'Products', label: 'Product', desc: 'Placeholder. Replace with a real project.', tags: ['Next.js'], hue: 120, img: null },
+  { key: 'c1', name: 'client-site-a', url: 'example.com', cat: 'Client sites', label: 'Client site', desc: 'Placeholder. Replace with a real project.', tags: ['Astro'], hue: 50, img: null },
+  { key: 'c2', name: 'client-site-b', url: 'example.com', cat: 'Client sites', label: 'Client site', desc: 'Placeholder. Replace with a real project.', tags: ['WordPress'], hue: 15, img: null },
+  { key: 'c3', name: 'client-site-c', url: 'example.com', cat: 'Client sites', label: 'Client site', desc: 'Placeholder. Replace with a real project.', tags: ['Vue'], hue: 230, img: null },
+  { key: 'a2', name: 'ai-tool-a', url: 'example.com', cat: 'AI', label: 'AI', desc: 'Placeholder. Replace with a real project.', tags: ['Python', 'RAG'], hue: 280, img: null },
+];
+const FILTERS = ['All', 'Products', 'Client sites', 'Demos', 'AI'];
+const EXP = [
+  { org: 'Organisation Solutions', role: 'Senior Software Engineer', when: '20XX – Now', current: true, note: 'Placeholder: one line on scope and impact.' },
+  { org: 'Produgie', role: 'Software Engineer', when: '20XX – 20XX', note: 'Placeholder: one line on scope and impact.' },
+  { org: 'ProSpark', role: 'Team Lead', when: '20XX – 20XX', note: 'Placeholder: one line on team size and what shipped.' },
+  { org: 'Maximize Play', role: 'Software Engineer', when: '20XX – 20XX', note: 'Placeholder: one line on scope and impact.' },
+];
+const SKILLS = [
+  { name: 'Frontend', items: ['TypeScript', 'React', 'Next.js', 'Angular', 'Tailwind', 'Testing Library', 'Playwright'] },
+  { name: 'Backend', items: ['Node.js', 'NestJS', 'PostgreSQL', 'REST', 'GraphQL', 'Redis'] },
+  { name: 'Infra & AI', items: ['AWS', 'Docker', 'CI/CD', 'Vercel', 'LLM APIs', 'RAG', 'Vector search'] },
+];
+const HERO = [
+  { key: 'gavel', x: '0%', y: '2%', w: '76%', z: 1, r: '-1.2deg', boot: 2 },
+  { key: 'finboard', x: '24%', y: '30%', w: '72%', z: 2, r: '.8deg', boot: 3 },
+  { key: 'grain', x: '6%', y: '58%', w: '58%', z: 3, r: '-.4deg', boot: 4 },
+];
+
+class Component extends DCLogic {
+  state = { filter: 'All', view: null, open: null, loaded: {}, time: '', copied: false };
+  rootRef = React.createRef(); winRef = React.createRef(); backRef = React.createRef(); closeRef = React.createRef();
+
+  reduced() { return window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  tick = () => this.setState({ time: new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Jakarta', weekday: 'short', hour: '2-digit', minute: '2-digit' }).format(new Date()) });
+  onKey = e => {
+    if (!this.state.open) return;
+    if (e.key === 'Escape') { e.preventDefault(); this.close(); return; }
+    if (e.key === 'Tab' && this.winRef.current) {
+      const els = [...this.winRef.current.querySelectorAll('a[href],button')];
+      if (!els.length) return;
+      const first = els[0], last = els[els.length - 1], a = document.activeElement;
+      if (!this.winRef.current.contains(a)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && a === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+    }
+  };
+
+  componentDidMount() {
+    PROJECTS.forEach(p => { if (!p.img) return; const im = new Image(); im.onload = () => this.setState(s => ({ loaded: { ...s.loaded, [p.key]: true } })); im.src = p.img; });
+    this.tick(); this.timer = setInterval(this.tick, 30000);
+    document.addEventListener('keydown', this.onKey);
+    const root = this.rootRef.current;
+    if (!root || this.reduced() || this.props.bootAnimation === false) return;
+    root.querySelectorAll('[data-boot]').forEach(el => {
+      const i = +el.getAttribute('data-boot');
+      el.animate(i === 0
+        ? [{ transform: 'translateY(-100%)' }, { transform: 'none' }]
+        : [{ opacity: 0, translate: '0 18px', scale: '.96' }, { opacity: 1, translate: '0 0', scale: '1' }],
+        { duration: i === 0 ? 420 : 560, delay: i === 0 ? 0 : 180 + i * 110, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+    });
+  }
+  componentWillUnmount() { clearInterval(this.timer); document.removeEventListener('keydown', this.onKey); }
+
+  afterOpen() {
+    {
+      const win = this.winRef.current, back = this.backRef.current;
+      this.closeRef.current && this.closeRef.current.focus({ preventScroll: true });
+      if (!win || this.reduced() || !this.origin) return;
+      back && back.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250 });
+      win.animate([{ transform: this.fromTransform(win), opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: 440, easing: 'cubic-bezier(.2,.85,.25,1)' });
+    }
+  }
+  fromTransform(win) {
+    const a = this.origin, b = win.getBoundingClientRect();
+    const sx = a.width / b.width, sy = a.height / b.height;
+    const dx = (a.left + a.width / 2) - (b.left + b.width / 2), dy = (a.top + a.height / 2) - (b.top + b.height / 2);
+    return `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+  }
+  launch(key, e) {
+    this.trigger = e.currentTarget;
+    this.origin = e.currentTarget.getBoundingClientRect();
+    this.setState({ open: key }, () => requestAnimationFrame(() => this.afterOpen()));
+  }
+  close = () => {
+    const win = this.winRef.current, back = this.backRef.current;
+    const done = () => { this.setState({ open: null }); this.trigger && this.trigger.focus({ preventScroll: true }); };
+    if (!win || this.reduced() || !this.origin || this.closing) return done();
+    this.closing = true;
+    back && back.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' });
+    const anim = win.animate([{ transform: 'none', opacity: 1 }, { transform: this.fromTransform(win), opacity: 0 }], { duration: 220, easing: 'cubic-bezier(.4,0,.6,1)', fill: 'forwards' });
+    anim.onfinish = () => { this.closing = false; done(); };
+  };
+
+  decorate(p) {
+    const img = this.state.loaded[p.key] ? p.img : null;
+    return {
+      ...p, img, noImg: !img, bgImg: img ? `url("${img}")` : 'none',
+      initial: p.name[0].toUpperCase(),
+      href: p.url ? 'https://' + p.url : null, noHref: !p.url,
+      urlLabel: p.url || 'in progress',
+      tagStr: p.tags.join(', '),
+      flex: p.featured === 'L' ? '7 1 440px' : '5 1 320px',
+      open: e => this.launch(p.key, e),
+    };
+  }
+
+  renderVals() {
+    const all = PROJECTS.map(p => this.decorate(p));
+    const byKey = Object.fromEntries(all.map(p => [p.key, p]));
+    const { filter } = this.state;
+    const view = this.state.view || this.props.defaultView || 'grid';
+    const visible = filter === 'All' ? all : all.filter(p => p.cat === filter);
+    const ink = '#1a1e22';
+    return {
+      rootRef: this.rootRef, winRef: this.winRef, backRef: this.backRef, closeRef: this.closeRef,
+      time: this.state.time,
+      heroWins: HERO.map(h => ({ ...byKey[h.key], ...h })),
+      dock: all.filter(p => p.featured || p.key === 'atlas'),
+      featured: all.filter(p => p.featured),
+      chips: FILTERS.map(f => {
+        const on = f === filter;
+        return { label: f, on, count: f === 'All' ? all.length : all.filter(p => p.cat === f).length, bg: on ? ink : '#eceeef', fg: on ? '#fafaf8' : ink, pick: () => this.setState({ filter: f }) };
+      }),
+      visible,
+      countLabel: `${visible.length} item${visible.length === 1 ? '' : 's'}`,
+      isGrid: view === 'grid', isList: view === 'list',
+      gridBg: view === 'grid' ? '#fafaf8' : 'transparent', listBg: view === 'list' ? '#fafaf8' : 'transparent',
+      setGrid: () => this.setState({ view: 'grid' }), setList: () => this.setState({ view: 'list' }),
+      exp: EXP.map(e => ({ ...e, dot: e.current ? 'oklch(0.78 0.14 75)' : '#c4c9cd' })),
+      skills: SKILLS,
+      isOpen: !!this.state.open,
+      cur: this.state.open ? byKey[this.state.open] : { tags: [] },
+      close: this.close,
+      onBackdrop: e => { if (e.target === e.currentTarget) this.close(); },
+      copyLabel: this.state.copied ? 'Copied' : 'Copy email',
+      copyEmail: () => { navigator.clipboard && navigator.clipboard.writeText('hello@kevinciang.com'); this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1800); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -13,14 +13,8 @@ npm run preview  # serve the production build locally
 
 ## Editing content
 
-All content lives in plain arrays at the top of `src/App.tsx`:
-
-- `PROFILE` — name, role, headline, email, social links, résumé path
-- `EXPERIENCE` — work history (check the date ranges)
-- `PROJECTS` — the demo cards (blurbs are placeholders — replace them)
-- `SKILLS` — grouped skill tags
-
-Drop a `resume.pdf` into `public/` and it will be served at `/resume.pdf`.
+- `src/data/projects.ts` — every project card and index entry. Add one entry to add a project. Screenshots go in `public/projects/{slug}.webp`; a missing one falls back to a generated cover.
+- `src/data/profile.ts` — profile, experience (check the date ranges) and skills.
 
 ## Deploy to Vercel + kevinciang.com
 
