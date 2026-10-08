@@ -7,7 +7,7 @@ export const profile = {
   timeZone: "Asia/Jakarta",
   timeZoneLabel: "WIB",
   email: "kevinciang1006@gmail.com",
-  github: "https://github.com/kevinciang1006", // verify handle
+  github: "https://github.com/kevinciang1006",
   linkedin: "https://www.linkedin.com/in/kevinciang1006/",
   contactHeading: "Hiring for a senior or staff role? Let’s talk.",
   contactNote:
