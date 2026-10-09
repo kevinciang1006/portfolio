@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { Project } from "../data/projects";
 import { categoryLabel, urlLabel } from "../lib/project-utils";
-import { Thumb } from "./Thumb";
+import { Gallery } from "./Gallery";
 
 interface Props {
   project: Project;
@@ -104,9 +104,7 @@ export function ProjectWindow({ project, origin, onClose }: Props) {
             Close <span>Esc</span>
           </button>
         </div>
-        <div className="modal__shot">
-          <Thumb project={project} eager className="thumb--fill thumb--modal" />
-        </div>
+        <Gallery project={project} />
         <div className="modal__body">
           <div className="modal__text">
             <div className="card__title">
