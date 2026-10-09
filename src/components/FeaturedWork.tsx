@@ -12,9 +12,9 @@ export function FeaturedWork({ onOpen }: { onOpen: OpenProject }) {
         <div className="win__body">
           <h2 id="work-h">Featured work</h2>
           <div className="bento">
-            {featured.map((p, i) => (
-              // Large, small, small, large… repeating: rows alternate 7:5 and 5:7.
-              <ProjectCard key={p.slug} project={p} variant="featured" large={i % 4 === 0 || i % 4 === 3} onOpen={onOpen} />
+            {/* Layout lives in CSS: a 7:5 lead row, then the rest in threes. */}
+            {featured.map((p) => (
+              <ProjectCard key={p.slug} project={p} variant="featured" onOpen={onOpen} />
             ))}
           </div>
         </div>

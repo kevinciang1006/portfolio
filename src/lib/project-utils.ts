@@ -12,6 +12,9 @@ export const categoryLabel = (p: Project) =>
 
 export const thumbSrc = (p: Project) => p.thumbnail ?? `/projects/${p.slug}.webp`;
 
+/** Short silent clip of the site, played over the thumbnail on hover. */
+export const previewSrc = (p: Project) => `/projects/previews/${p.slug}.mp4`;
+
 export const urlLabel = (p: Project) =>
   p.url ? p.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "in progress";
 

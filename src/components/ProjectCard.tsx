@@ -8,7 +8,6 @@ export type OpenProject = (project: Project, trigger: HTMLElement) => void;
 interface Props {
   project: Project;
   variant: "featured" | "tile" | "row";
-  large?: boolean;
   onOpen: OpenProject;
 }
 
@@ -51,19 +50,19 @@ function Opener({ project, onOpen, className, children }: { project: Project; on
   );
 }
 
-export function ProjectCard({ project, variant, large = false, onOpen }: Props) {
+export function ProjectCard({ project, variant, onOpen }: Props) {
   const live = !!project.url;
   const state = live ? "is-live" : "is-static";
 
   if (variant === "featured") {
     return (
-      <article className={`card card--featured ${large ? "is-large" : "is-small"} ${state}`}>
+      <article className={`card card--featured ${state}`}>
         <Opener project={project} onOpen={onOpen} className="card__shot">
           <span className="card__url">
             <span className="card__url-dot" />
             {urlLabel(project)}
           </span>
-          <Thumb project={project} className="thumb--fill" />
+          <Thumb project={project} className="thumb--fill" preview />
         </Opener>
         <div className="card__body">
           <div className="card__text">
@@ -90,7 +89,7 @@ export function ProjectCard({ project, variant, large = false, onOpen }: Props) 
     return (
       <li className={`card card--tile ${state}`}>
         <Opener project={project} onOpen={onOpen} className="tile__shot">
-          <Thumb project={project} className="thumb--tile" />
+          <Thumb project={project} className="thumb--tile" preview />
         </Opener>
         <div className="tile__foot">
           <div className="tile__text">
@@ -110,7 +109,7 @@ export function ProjectCard({ project, variant, large = false, onOpen }: Props) 
   return (
     <li className={`row ${state}`}>
       <Opener project={project} onOpen={onOpen} className="row__main">
-        <Thumb project={project} className="thumb--row" />
+        <Thumb project={project} className="thumb--row" preview />
         <span className="row__text">
           <span className="row__name">{project.name}</span>
           <span className="row__desc">{project.description}</span>
