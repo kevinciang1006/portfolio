@@ -4,6 +4,7 @@ export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
   name: string;
   url?: string; // optional: some projects aren't live yet
+  hidden?: boolean; // kept in the data but not shown (e.g. waiting on permission to publish)
   description: string;
   category: ProjectCategory;
   tags: string[];
@@ -14,13 +15,13 @@ export interface Project {
 // Adding a project = adding one entry here. Order matters: entries are listed
 // best first, featured entries fill the bento grid in order, and the index
 // shows everything in this order.
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     slug: "studioruang",
     name: "Studio Ruang",
     url: "https://studioruang.kevinciang.com",
     description: "Brand site for a Singapore residential interior design studio, with an enquiry form.",
-    category: "client",
+    category: "demo",
     tags: ["Astro", "Supabase", "Tailwind"],
     featured: true,
   },
@@ -47,7 +48,7 @@ export const projects: Project[] = [
     name: "Durian Sriraja",
     url: "https://durian.kevinciang.com",
     description: "Bilingual, SEO-first site for a family durian orchard in North Sumatra, with a contact form that emails the owners.",
-    category: "client",
+    category: "demo",
     tags: ["Astro", "Tailwind", "Resend"],
     featured: true,
   },
@@ -74,7 +75,7 @@ export const projects: Project[] = [
     name: "Setting",
     url: "https://wedding.kevinciang.com",
     description: "Wedding floor-plan and seating editor. Draw the room to scale, seat guests, and export a PDF for the caterer.",
-    category: "product",
+    category: "demo",
     tags: ["Next.js", "Konva", "Zustand"],
     featured: false,
   },
@@ -119,7 +120,7 @@ export const projects: Project[] = [
     name: "Concourse",
     url: "https://concourse.kevinciang.com",
     description: "Corporate travel booking that checks every flight and hotel against company policy, with a manager approvals queue.",
-    category: "product",
+    category: "demo",
     tags: ["Nuxt", "Vue", "Pinia"],
     featured: false,
   },
@@ -281,7 +282,7 @@ export const projects: Project[] = [
     name: "Vihara Kita",
     url: "https://vihara.kevinciang.com",
     description: "Bahasa Indonesia directory of Buddhist temples in Medan, with service schedules, events and announcements.",
-    category: "product",
+    category: "demo",
     tags: ["Next.js", "Tailwind", "SEO"],
     featured: false,
   },
@@ -385,3 +386,5 @@ export const projects: Project[] = [
     featured: false,
   },
 ];
+
+export const projects: Project[] = allProjects.filter((p) => !p.hidden);
