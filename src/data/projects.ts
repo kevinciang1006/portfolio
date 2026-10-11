@@ -270,8 +270,6 @@ const allProjects: Project[] = [
   },
   {
     slug: "sredio-test",
-    // Paid take-home for sred.io: hidden until Kevin confirms it may be published.
-    hidden: true,
     name: "Sredio",
     url: "https://sredio.kevinciang.com",
     description: "Dashboard that turns timesheet and salary data into projected SR&ED tax credits for the year. Demo login on the sign-in page.",
