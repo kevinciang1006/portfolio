@@ -4,6 +4,7 @@ export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
   name: string;
   url?: string; // optional: some projects aren't live yet
+  hidden?: boolean; // kept in the data but not shown (e.g. waiting on permission to publish)
   description: string;
   category: ProjectCategory;
   tags: string[];
@@ -14,7 +15,7 @@ export interface Project {
 // Adding a project = adding one entry here. Order matters: entries are listed
 // best first, featured entries fill the bento grid in order, and the index
 // shows everything in this order.
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     slug: "studioruang",
     name: "Studio Ruang",
@@ -269,6 +270,8 @@ export const projects: Project[] = [
   },
   {
     slug: "sredio-test",
+    // Paid take-home for sred.io: hidden until Kevin confirms it may be published.
+    hidden: true,
     name: "Sredio",
     url: "https://sredio.kevinciang.com",
     description: "Dashboard that turns timesheet and salary data into projected SR&ED tax credits for the year. Demo login on the sign-in page.",
@@ -385,3 +388,5 @@ export const projects: Project[] = [
     featured: false,
   },
 ];
+
+export const projects: Project[] = allProjects.filter((p) => !p.hidden);

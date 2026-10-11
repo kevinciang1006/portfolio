@@ -1,7 +1,7 @@
 export const profile = {
   name: "Kevin Ciang",
   intro:
-    "Senior software engineer with eight years in frontend, now building fullstack and AI applications for Singapore teams from Medan, Indonesia.",
+    "Senior software engineer with eight years of experience, mostly frontend for B2B SaaS. Most recently led the frontend of a leadership assessment platform for a Singapore company. Based in Medan, working Singapore hours.",
   availability: "Open to senior/staff roles",
   city: "Medan",
   timeZone: "Asia/Jakarta",
@@ -26,26 +26,25 @@ export const experience: Job[] = [
   {
     org: "Organisation Solutions",
     role: "Senior Software Engineer",
-    when: "2024 – Now", // check dates
-    current: true,
-    note: "Leading the frontend of a leadership-assessment SaaS platform. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
+    when: "Jun 2025 – Apr 2026",
+    note: "Led the frontend of a leadership-assessment SaaS platform. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
   },
   {
     org: "Produgie",
     role: "Senior Software Engineer",
-    when: "2021 – 2024", // check dates
+    when: "Feb 2022 – May 2025",
     note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests.",
   },
   {
     org: "ProSpark",
     role: "Dev Team Lead · Full Stack Developer",
-    when: "2019 – 2021", // check dates
+    when: "Feb 2021 – Feb 2022",
     note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut.",
   },
   {
     org: "Maximize Play",
     role: "Full Stack & Game Developer",
-    when: "2017 – 2019", // check dates
+    when: "Mar 2017 – Feb 2021",
     note: "Built web and mobile apps plus games, from the UI to real-time game logic.",
   },
 ];
@@ -58,11 +57,11 @@ export interface SkillGroup {
 export const skills: SkillGroup[] = [
   {
     name: "Frontend",
-    items: ["TypeScript", "React", "Next.js", "Angular", "Tailwind", "Testing Library", "Playwright"],
+    items: ["TypeScript", "React", "Next.js", "Angular", "Vue", "Tailwind", "Testing Library", "Vitest", "Cypress"],
   },
-  { name: "Backend", items: ["Node.js", "NestJS", "PostgreSQL", "REST", "GraphQL", "Redis"] },
+  { name: "Backend", items: ["Node.js", "NestJS", "FastAPI", "PostgreSQL", "Supabase", "REST", "GraphQL", "Redis"] },
   {
-    name: "Infra & AI",
-    items: ["AWS", "Docker", "CI/CD", "Vercel", "LLM APIs", "RAG", "Vector search"],
+    name: "Infra",
+    items: ["AWS", "Google Cloud Run", "Docker", "GitHub Actions", "Vercel"],
   },
 ];

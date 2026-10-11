@@ -18,9 +18,12 @@ const clock = () =>
   }).format(new Date());
 
 export function Nav() {
-  const [time, setTime] = useState(clock);
+  // Empty on the pre-rendered page and the first client render (they must match);
+  // the clock fills in right after hydration.
+  const [time, setTime] = useState("");
 
   useEffect(() => {
+    setTime(clock());
     const id = setInterval(() => setTime(clock()), 30000);
     return () => clearInterval(id);
   }, []);
