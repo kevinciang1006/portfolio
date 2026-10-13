@@ -718,5 +718,23 @@ export const SHOTS: Record<string, Shot[]> = {
       "src": "/projects/shots/wedding/3.webp",
       "label": "Dietary"
     }
+  ],
+  "office-view": [
+    {
+      "src": "/projects/shots/office-view/1.webp",
+      "label": "The office"
+    },
+    {
+      "src": "/projects/shots/office-view/2.webp",
+      "label": "Following someone at their desk"
+    },
+    {
+      "src": "/projects/shots/office-view/3.webp",
+      "label": "Break time at the whiteboard"
+    },
+    {
+      "src": "/projects/shots/office-view/4.webp",
+      "label": "Another angle"
+    }
   ]
 };
