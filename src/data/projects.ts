@@ -62,6 +62,47 @@ const allProjects: Project[] = [
     },
   },
   {
+    slug: "produgie",
+    name: "Produgie",
+    description:
+      "Leadership development platform: growth sprints, behaviour analytics and Growth Leader assessments. I owned the Sprint module across the Angular apps and its end-to-end tests, and built the assessment PDF reports.",
+    category: "work",
+    tags: ["Angular", "TypeScript", "Scala Play", "Cypress", "ApexCharts"],
+    featured: true,
+    caseStudy: {
+      note: "Private client platform, so no live link. The screens use a made-up company and people, and sample report pages have their text blurred so only the design shows.",
+      reports: [
+        {
+          label: "Growth Leader Assessment",
+          pages: [
+            { src: "/reports/produgie-gla/01.webp", caption: "Report cover with capability wheel" },
+            { src: "/reports/produgie-gla/03.webp", caption: "Growth leader snapshot" },
+            { src: "/reports/produgie-gla/05.webp", caption: "Style and strategy matrix" },
+            { src: "/reports/produgie-gla/12.webp", caption: "Capability detail with style and strategy scales" },
+          ],
+        },
+        {
+          label: "Growth Leader 360",
+          pages: [
+            { src: "/reports/produgie-gl360/04.webp", caption: "Highest and lowest capabilities" },
+            { src: "/reports/produgie-gl360/06.webp", caption: "Ratings by stakeholder group" },
+            { src: "/reports/produgie-gl360/24.webp", caption: "Snapshot of stakeholder views" },
+            { src: "/reports/produgie-gl360/25.webp", caption: "Capability rank order by rater" },
+          ],
+        },
+        {
+          label: "Team Alignment",
+          pages: [
+            { src: "/reports/produgie-ta/03.webp", caption: "Team alignment framework scores" },
+            { src: "/reports/produgie-ta/04.webp", caption: "Highest and lowest alignment" },
+            { src: "/reports/produgie-ta/05.webp", caption: "Purpose: enablers and suggested sprints" },
+            { src: "/reports/produgie-ta/09.webp", caption: "Overall trends" },
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: "studioruang",
     name: "Studio Ruang",
     url: "https://studioruang.kevinciang.com",

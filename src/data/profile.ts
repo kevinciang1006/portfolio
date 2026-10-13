@@ -35,6 +35,7 @@ export const experience: Job[] = [
     org: "Produgie",
     role: "Senior Software Engineer",
     when: "Feb 2022 – May 2025",
+    project: "produgie",
     note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests.",
   },
   {
