@@ -35,6 +35,15 @@ const allProjects: Project[] = [
     featured: true,
   },
   {
+    slug: "office-view",
+    name: "The Office",
+    url: "https://office.kevinciang.com",
+    description: "Live 3D office for my team of AI engineers: each one sits at a desk, types while working, wanders off for coffee on a break, and shows what they're doing right now. Public demo uses a made-up team.",
+    category: "ai",
+    tags: ["Three.js", "WebGL", "Bun"],
+    featured: true,
+  },
+  {
     slug: "overlay",
     name: "Overlay",
     url: "https://overlay.kevinciang.com",
@@ -50,15 +59,6 @@ const allProjects: Project[] = [
     description: "Bilingual, SEO-first site for a family durian orchard in North Sumatra, with a contact form that emails the owners.",
     category: "demo",
     tags: ["Astro", "Tailwind", "Resend"],
-    featured: true,
-  },
-  {
-    slug: "office-view",
-    name: "The Office",
-    url: "https://office.kevinciang.com",
-    description: "Live 3D office for my team of AI engineers: each one sits at a desk, types while working, wanders off for coffee on a break, and shows what they're doing right now. Public demo uses a made-up team.",
-    category: "ai",
-    tags: ["Three.js", "WebGL", "Bun"],
     featured: true,
   },
   {
