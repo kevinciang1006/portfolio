@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "../data/profile";
 import { projects } from "../data/projects";
-import { hueOf, urlLabel } from "../lib/project-utils";
+import { canOpen, hueOf, isWork, urlLabel } from "../lib/project-utils";
 import { Thumb } from "./Thumb";
 import type { OpenProject } from "./ProjectCard";
 import { WindowBar } from "./WindowBar";
@@ -15,10 +15,10 @@ const SLOTS = [
 ];
 
 export function Hero({ onOpen }: { onOpen: OpenProject }) {
-  const featured = projects.filter((p) => p.featured && p.url);
+  const featured = projects.filter((p) => p.featured && canOpen(p));
   const stack = featured.slice(0, SLOTS.length);
   // Dock: every featured project, plus in-progress ones that have no window yet.
-  const dock = projects.filter((p) => p.featured || !p.url);
+  const dock = projects.filter((p) => p.featured || !canOpen(p));
 
   return (
     <>
@@ -48,7 +48,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
             return (
               <div
                 key={p.slug}
-                className="stack__win"
+                className={`stack__win${isWork(p) ? " is-work" : ""}`}
                 data-boot={i + 2}
                 style={{ left: s.x, top: s.y, width: s.w, zIndex: s.z, transform: `rotate(${s.r})`, "--i": i + 2 } as CSSProperties}
               >
@@ -58,6 +58,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
                     <span className="stack__title">
                       {p.name} — {urlLabel(p)}
                     </span>
+                    {isWork(p) && <span className="work-badge">Production</span>}
                   </span>
                   <Thumb project={p} eager preview className="thumb--hero" />
                 </button>
@@ -77,7 +78,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
               <span className="dock__name">{p.name}</span>
             </>
           );
-          return p.url ? (
+          return canOpen(p) ? (
             <button key={p.slug} type="button" className="dock__item" aria-label={`Open ${p.name} window`} onClick={(e) => onOpen(p, e.currentTarget)}>
               {inner}
             </button>

@@ -5,6 +5,106 @@ export interface Shot {
 }
 
 export const SHOTS: Record<string, Shot[]> = {
+  "produgie": [
+    {
+      "src": "/projects/shots/produgie/1.webp",
+      "label": "Home"
+    },
+    {
+      "src": "/projects/shots/produgie/2.webp",
+      "label": "Manage sprint"
+    },
+    {
+      "src": "/projects/shots/produgie/3.webp",
+      "label": "Analytics"
+    },
+    {
+      "src": "/projects/shots/produgie/4.webp",
+      "label": "Growth leader profile"
+    },
+    {
+      "src": "/projects/shots/produgie/5.webp",
+      "label": "Assessment report"
+    },
+    {
+      "src": "/projects/shots/produgie/6.webp",
+      "label": "Growth Leader 360"
+    },
+    {
+      "src": "/projects/shots/produgie/7.webp",
+      "label": "Team alignment"
+    },
+    {
+      "src": "/projects/shots/produgie/8.webp",
+      "label": "Manager impact board"
+    },
+    {
+      "src": "/projects/shots/produgie/9.webp",
+      "label": "Sprint library"
+    },
+    {
+      "src": "/projects/shots/produgie/10.webp",
+      "label": "Pre-designed sprints"
+    },
+    {
+      "src": "/projects/shots/produgie/11.webp",
+      "label": "My portfolio"
+    },
+    {
+      "src": "/projects/shots/produgie/12.webp",
+      "label": "Events"
+    }
+  ],
+  "organisation-solutions": [
+    {
+      "src": "/projects/shots/organisation-solutions/1.webp",
+      "label": "Dashboard"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/2.webp",
+      "label": "Assess team"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/3.webp",
+      "label": "Team detail"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/4.webp",
+      "label": "Participant reports"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/5.webp",
+      "label": "Talent Studio"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/6.webp",
+      "label": "Token purchases"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/7.webp",
+      "label": "Workspaces"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/8.webp",
+      "label": "Assess leaders"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/9.webp",
+      "label": "Report: group snapshot + heatmap"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/10.webp",
+      "label": "Report: individual radar + canvas"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/11.webp",
+      "label": "Report: select snapshot + team roles"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/12.webp",
+      "label": "Report: distribution + potential"
+    }
+  ],
   "airlock": [
     {
       "src": "/projects/shots/airlock/1.webp",

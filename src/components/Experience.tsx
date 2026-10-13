@@ -1,7 +1,9 @@
 import { experience } from "../data/profile";
+import { projects } from "../data/projects";
+import type { OpenProject } from "./ProjectCard";
 import { WindowBar } from "./WindowBar";
 
-export function Experience() {
+export function Experience({ onOpen }: { onOpen: OpenProject }) {
   return (
     <section id="experience" className="win split__exp" aria-labelledby="exp-h">
       <WindowBar title="experience.log" />
@@ -21,6 +23,14 @@ export function Experience() {
                 </div>
                 <span className="timeline__role">{e.role}</span>
                 <p>{e.note}</p>
+                {(() => {
+                  const p = e.project && projects.find((x) => x.slug === e.project);
+                  return p ? (
+                    <button type="button" className="btn-chip timeline__work" onClick={(ev) => onOpen(p, ev.currentTarget)}>
+                      See the work →
+                    </button>
+                  ) : null;
+                })()}
               </div>
             </li>
           ))}
