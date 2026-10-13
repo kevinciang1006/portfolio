@@ -53,6 +53,15 @@ const allProjects: Project[] = [
     featured: true,
   },
   {
+    slug: "office-view",
+    name: "The Office",
+    url: "https://office.kevinciang.com",
+    description: "Live 3D office for my team of AI engineers: each one sits at a desk, types while working, wanders off for coffee on a break, and shows what they're doing right now. Public demo uses a made-up team.",
+    category: "ai",
+    tags: ["Three.js", "WebGL", "Bun"],
+    featured: true,
+  },
+  {
     slug: "contractor",
     name: "Sumber Bukit Jaya",
     url: "https://arch.kevinciang.com",
