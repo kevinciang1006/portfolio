@@ -33,7 +33,7 @@ export default function App() {
         <FeaturedWork onOpen={onOpen} />
         <ProjectIndex onOpen={onOpen} />
         <div className="split">
-          <Experience />
+          <Experience onOpen={onOpen} />
           <Skills />
         </div>
         <Contact />

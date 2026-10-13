@@ -20,6 +20,7 @@ export interface Job {
   when: string;
   note: string;
   current?: boolean;
+  project?: string; // slug of a portfolio entry showing this work
 }
 
 export const experience: Job[] = [
@@ -27,6 +28,7 @@ export const experience: Job[] = [
     org: "Organisation Solutions",
     role: "Senior Software Engineer",
     when: "Jun 2025 – Apr 2026",
+    project: "organisation-solutions",
     note: "Led the frontend of a leadership-assessment SaaS platform. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
   },
   {

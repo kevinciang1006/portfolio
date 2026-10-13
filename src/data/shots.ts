@@ -5,6 +5,56 @@ export interface Shot {
 }
 
 export const SHOTS: Record<string, Shot[]> = {
+  "organisation-solutions": [
+    {
+      "src": "/projects/shots/organisation-solutions/1.webp",
+      "label": "Dashboard"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/2.webp",
+      "label": "Assess team"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/3.webp",
+      "label": "Team detail"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/4.webp",
+      "label": "Participant reports"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/5.webp",
+      "label": "Talent Studio"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/6.webp",
+      "label": "Token purchases"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/7.webp",
+      "label": "Workspaces"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/8.webp",
+      "label": "Assess leaders"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/9.webp",
+      "label": "Report: group snapshot + heatmap"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/10.webp",
+      "label": "Report: individual radar + canvas"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/11.webp",
+      "label": "Report: select snapshot + team roles"
+    },
+    {
+      "src": "/projects/shots/organisation-solutions/12.webp",
+      "label": "Report: distribution + potential"
+    }
+  ],
   "airlock": [
     {
       "src": "/projects/shots/airlock/1.webp",

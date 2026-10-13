@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Project } from "../data/projects";
-import { categoryLabel, urlLabel } from "../lib/project-utils";
+import { canOpen, categoryLabel, urlLabel } from "../lib/project-utils";
 import { Thumb } from "./Thumb";
 
 export type OpenProject = (project: Project, trigger: HTMLElement) => void;
@@ -35,9 +35,9 @@ function Tags({ tags }: { tags: string[] }) {
   );
 }
 
-/** Opens the project window when live; a plain, inert box when there is no url. */
+/** Opens the project window when there is one; a plain, inert box otherwise. */
 function Opener({ project, onOpen, className, children }: { project: Project; onOpen: OpenProject; className: string; children: ReactNode }) {
-  if (!project.url) return <div className={className}>{children}</div>;
+  if (!canOpen(project)) return <div className={className}>{children}</div>;
   return (
     <button
       type="button"
@@ -52,7 +52,8 @@ function Opener({ project, onOpen, className, children }: { project: Project; on
 
 export function ProjectCard({ project, variant, onOpen }: Props) {
   const live = !!project.url;
-  const state = live ? "is-live" : "is-static";
+  const state = canOpen(project) ? "is-live" : "is-static";
+  const pending = live || project.caseStudy ? null : "In progress";
 
   if (variant === "featured") {
     return (
@@ -78,7 +79,7 @@ export function ProjectCard({ project, variant, onOpen }: Props) {
               Visit live ↗
             </VisitLink>
           ) : (
-            <span className="mono-label card__pending">In progress</span>
+            pending && <span className="mono-label card__pending">{pending}</span>
           )}
         </div>
       </article>
@@ -94,7 +95,7 @@ export function ProjectCard({ project, variant, onOpen }: Props) {
         <div className="tile__foot">
           <div className="tile__text">
             <span className="tile__name">{project.name}</span>
-            <span className="mono-label">{live ? categoryLabel(project) : `${categoryLabel(project)} · in progress`}</span>
+            <span className="mono-label">{pending ? `${categoryLabel(project)} · in progress` : categoryLabel(project)}</span>
           </div>
           {live && (
             <VisitLink project={project} className="btn-icon">
@@ -123,7 +124,7 @@ export function ProjectCard({ project, variant, onOpen }: Props) {
           Visit live ↗
         </VisitLink>
       ) : (
-        <span className="mono-label row__pending">In progress</span>
+        pending && <span className="mono-label row__pending">{pending}</span>
       )}
     </li>
   );

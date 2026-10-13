@@ -5,6 +5,7 @@ export const CATEGORIES: { id: ProjectCategory; label: string; chip: string }[] 
   { id: "client", label: "Client site", chip: "Client sites" },
   { id: "demo", label: "Demo", chip: "Demos" },
   { id: "ai", label: "AI", chip: "AI" },
+  { id: "work", label: "Professional work", chip: "Work" },
 ];
 
 export const categoryLabel = (p: Project) =>
@@ -16,7 +17,10 @@ export const thumbSrc = (p: Project) => p.thumbnail ?? `/projects/${p.slug}.webp
 export const previewSrc = (p: Project) => `/projects/previews/${p.slug}.mp4`;
 
 export const urlLabel = (p: Project) =>
-  p.url ? p.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "in progress";
+  p.url ? p.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : p.caseStudy ? "private platform" : "in progress";
+
+/** Has a window to open: live projects, and private work shown through samples. */
+export const canOpen = (p: Project) => !!p.url || !!p.caseStudy;
 
 /** Stable hue (0–359) so each generated cover keeps its colour. */
 export function hueOf(slug: string) {

@@ -1,4 +1,6 @@
-export type ProjectCategory = "product" | "client" | "demo" | "ai";
+import type { Report } from "../components/ReportViewer";
+
+export type ProjectCategory = "product" | "client" | "demo" | "ai" | "work";
 
 export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
@@ -10,12 +12,55 @@ export interface Project {
   tags: string[];
   featured: boolean;
   thumbnail?: string; // defaults to /projects/{slug}.webp
+  // Professional work on a private platform: opens a window of cleaned screens and sample files instead of a live link.
+  caseStudy?: { note: string; reports: Report[] };
 }
 
 // Adding a project = adding one entry here. Order matters: entries are listed
 // best first, featured entries fill the bento grid in order, and the index
 // shows everything in this order.
 const allProjects: Project[] = [
+  {
+    slug: "organisation-solutions",
+    name: "Lea · Organisation Solutions",
+    description:
+      "Leadership-assessment SaaS for a Singapore consultancy. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports the platform generates.",
+    category: "work",
+    tags: ["React", "TypeScript", "WorkOS", "Stripe", "PostHog", "Puppeteer"],
+    featured: false,
+    caseStudy: {
+      note: "Private client platform, so no live link. The screens use made-up people and companies, and sample report pages have their text blurred so only the design shows.",
+      reports: [
+        {
+          label: "Group report",
+          pages: [
+            { src: "/reports/group/03.webp", caption: "Capability snapshot" },
+            { src: "/reports/group/05.webp", caption: "Capability distribution across the group" },
+            { src: "/reports/group/06.webp", caption: "Strategy and skills to develop" },
+            { src: "/reports/group/08.webp", caption: "Strengths and opportunities heatmap" },
+            { src: "/reports/group/11.webp", caption: "Group potential and pipeline by role" },
+          ],
+        },
+        {
+          label: "Individual develop report",
+          pages: [
+            { src: "/reports/develop/03.webp", caption: "Capability overview with radar chart" },
+            { src: "/reports/develop/04.webp", caption: "Development canvas" },
+            { src: "/reports/develop/06.webp", caption: "Capability detail with style and strategy" },
+            { src: "/reports/develop/14.webp", caption: "Team roles" },
+          ],
+        },
+        {
+          label: "Individual select report",
+          pages: [
+            { src: "/reports/select/02.webp", caption: "Assessment model overview" },
+            { src: "/reports/select/03.webp", caption: "Capability snapshot with role-fit gauge" },
+            { src: "/reports/select/14.webp", caption: "Team roles" },
+          ],
+        },
+      ],
+    },
+  },
   {
     slug: "studioruang",
     name: "Studio Ruang",

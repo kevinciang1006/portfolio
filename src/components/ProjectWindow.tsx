@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Project } from "../data/projects";
 import { categoryLabel, urlLabel } from "../lib/project-utils";
 import { Gallery } from "./Gallery";
+import { ReportViewer, type Report } from "./ReportViewer";
 
 interface Props {
   project: Project;
@@ -23,6 +24,8 @@ export function ProjectWindow({ project, origin, onClose }: Props) {
   const backRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const closing = useRef(false);
+  const [report, setReport] = useState<Report | null>(null);
+  const closeReport = useCallback(() => setReport(null), []);
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
 
@@ -112,18 +115,29 @@ export function ProjectWindow({ project, origin, onClose }: Props) {
               <span className="mono-label">{categoryLabel(project)}</span>
             </div>
             <p>{project.description}</p>
+            {project.caseStudy && <p className="modal__note">{project.caseStudy.note}</p>}
             <ul className="tags tags--lg" aria-label="Tech">
               {project.tags.map((t) => (
                 <li key={t}>{t}</li>
               ))}
             </ul>
           </div>
+          {project.caseStudy && (
+            <div className="modal__downloads">
+              {project.caseStudy.reports.map((r) => (
+                <button key={r.label} type="button" className="btn-chip" onClick={() => setReport(r)}>
+                  {r.label} ({r.pages.length} pages)
+                </button>
+              ))}
+            </div>
+          )}
           {project.url && (
             <a className="btn-primary btn-primary--lg modal__visit" href={project.url} target="_blank" rel="noopener noreferrer">
               Visit live ↗
             </a>
           )}
         </div>
+        {report && <ReportViewer report={report} onClose={closeReport} />}
       </div>
     </div>
   );

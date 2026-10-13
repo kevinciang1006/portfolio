@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "../data/profile";
 import { projects } from "../data/projects";
-import { hueOf, urlLabel } from "../lib/project-utils";
+import { canOpen, hueOf, urlLabel } from "../lib/project-utils";
 import { Thumb } from "./Thumb";
 import type { OpenProject } from "./ProjectCard";
 import { WindowBar } from "./WindowBar";
@@ -18,7 +18,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
   const featured = projects.filter((p) => p.featured && p.url);
   const stack = featured.slice(0, SLOTS.length);
   // Dock: every featured project, plus in-progress ones that have no window yet.
-  const dock = projects.filter((p) => p.featured || !p.url);
+  const dock = projects.filter((p) => p.featured || !canOpen(p));
 
   return (
     <>
@@ -77,7 +77,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
               <span className="dock__name">{p.name}</span>
             </>
           );
-          return p.url ? (
+          return canOpen(p) ? (
             <button key={p.slug} type="button" className="dock__item" aria-label={`Open ${p.name} window`} onClick={(e) => onOpen(p, e.currentTarget)}>
               {inner}
             </button>
