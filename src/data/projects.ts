@@ -27,7 +27,7 @@ const allProjects: Project[] = [
       "Leadership-assessment SaaS for a Singapore consultancy. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports the platform generates.",
     category: "work",
     tags: ["React", "TypeScript", "WorkOS", "Stripe", "PostHog", "Puppeteer"],
-    featured: false,
+    featured: true,
     caseStudy: {
       note: "Private client platform, so no live link. The screens use made-up people and companies, and sample report pages have their text blurred so only the design shows.",
       reports: [
@@ -441,4 +441,7 @@ const allProjects: Project[] = [
   },
 ];
 
-export const projects: Project[] = allProjects.filter((p) => !p.hidden);
+// Professional (production) work always leads; otherwise the list order above stands.
+export const projects: Project[] = allProjects
+  .filter((p) => !p.hidden)
+  .sort((a, b) => Number(b.category === "work") - Number(a.category === "work"));

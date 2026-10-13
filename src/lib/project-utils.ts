@@ -1,11 +1,11 @@
 import type { Project, ProjectCategory } from "../data/projects";
 
 export const CATEGORIES: { id: ProjectCategory; label: string; chip: string }[] = [
+  { id: "work", label: "Professional work", chip: "Professional work" },
   { id: "product", label: "Product", chip: "Products" },
   { id: "client", label: "Client site", chip: "Client sites" },
   { id: "demo", label: "Demo", chip: "Demos" },
   { id: "ai", label: "AI", chip: "AI" },
-  { id: "work", label: "Professional work", chip: "Work" },
 ];
 
 export const categoryLabel = (p: Project) =>
@@ -20,6 +20,8 @@ export const urlLabel = (p: Project) =>
   p.url ? p.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : p.caseStudy ? "private platform" : "in progress";
 
 /** Has a window to open: live projects, and private work shown through samples. */
+export const isWork = (p: Project) => p.category === "work";
+
 export const canOpen = (p: Project) => !!p.url || !!p.caseStudy;
 
 /** Stable hue (0–359) so each generated cover keeps its colour. */
