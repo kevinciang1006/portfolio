@@ -59,7 +59,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
                       {p.name} — {urlLabel(p)}
                     </span>
                   </span>
-                  <Thumb project={p} eager className="thumb--hero" />
+                  <Thumb project={p} eager preview className="thumb--hero" />
                 </button>
               </div>
             );
