@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Project } from "../data/projects";
-import { canOpen, categoryLabel, isWork, urlLabel } from "../lib/project-utils";
+import { canOpen, categoryLabel, highlight, urlLabel } from "../lib/project-utils";
 import { Thumb } from "./Thumb";
 
 export type OpenProject = (project: Project, trigger: HTMLElement) => void;
@@ -52,7 +52,8 @@ function Opener({ project, onOpen, className, children }: { project: Project; on
 
 export function ProjectCard({ project, variant, onOpen }: Props) {
   const live = !!project.url;
-  const state = (canOpen(project) ? "is-live" : "is-static") + (isWork(project) ? " is-work" : "");
+  const hl = highlight(project);
+  const state = (canOpen(project) ? "is-live" : "is-static") + (hl ? ` is-${hl.kind}` : "");
   const pending = live || project.caseStudy ? null : "In progress";
 
   if (variant === "featured") {
@@ -63,7 +64,7 @@ export function ProjectCard({ project, variant, onOpen }: Props) {
             <span className="card__url-dot" />
             {urlLabel(project)}
           </span>
-          {isWork(project) && <span className="work-badge work-badge--shot">Production</span>}
+          {hl && <span className={`work-badge work-badge--${hl.kind} work-badge--shot`}>{hl.badge}</span>}
           <Thumb project={project} className="thumb--fill" preview />
         </Opener>
         <div className="card__body">
@@ -91,7 +92,7 @@ export function ProjectCard({ project, variant, onOpen }: Props) {
     return (
       <li className={`card card--tile ${state}`}>
         <Opener project={project} onOpen={onOpen} className="tile__shot">
-          {isWork(project) && <span className="work-badge work-badge--shot">Production</span>}
+          {hl && <span className={`work-badge work-badge--${hl.kind} work-badge--shot`}>{hl.badge}</span>}
           <Thumb project={project} className="thumb--tile" preview />
         </Opener>
         <div className="tile__foot">

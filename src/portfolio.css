@@ -14,6 +14,8 @@
   --accent-text: oklch(0.46 0.16 255);
   --work: oklch(0.74 0.15 68); /* professional (production) work highlight */
   --work-text: oklch(0.48 0.12 60);
+  --client: oklch(0.62 0.17 250); /* client work highlight */
+  --client-text: oklch(0.45 0.17 255);
   --nav-h: 64px;
   --gutter: clamp(16px, 4vw, 40px);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -698,9 +700,55 @@ button.card__shot {
   font-weight: 500;
   cursor: pointer;
 }
-.chip[aria-pressed="true"] {
+.chip {
+  position: relative;
+  user-select: none;
+}
+.chip input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.chip__box {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--muted-2);
+  border-radius: 4px;
+  background: var(--paper);
+}
+.chip:has(input:checked) {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.chip input:checked + .chip__box {
+  border-color: var(--ink);
   background: var(--ink);
-  color: var(--paper);
+}
+.chip input:checked + .chip__box::after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  margin-top: -2px;
+  border-left: 2px solid var(--paper);
+  border-bottom: 2px solid var(--paper);
+  transform: rotate(-45deg);
+}
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.index__empty {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+fieldset.chips {
+  border: 0;
+  padding: 0;
+  min-width: 0;
 }
 .chip__count {
   font-family: "DM Mono", monospace;
@@ -1315,12 +1363,23 @@ button.row__main {
 .row.is-work {
   box-shadow: inset 0 0 0 2px var(--work);
 }
+.card.is-client,
+.row.is-client {
+  box-shadow: inset 0 0 0 2px var(--client);
+}
 .card.is-work .mono-label,
 .row.is-work .row__meta {
   color: var(--work-text);
 }
+.card.is-client .mono-label,
+.row.is-client .row__meta {
+  color: var(--client-text);
+}
 .stack__win.is-work .stack__btn {
   box-shadow: 0 0 0 2px var(--work), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
+}
+.stack__win.is-client .stack__btn {
+  box-shadow: 0 0 0 2px var(--client), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
 }
 .work-badge {
   display: inline-flex;
@@ -1334,6 +1393,10 @@ button.row__main {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+.work-badge--client {
+  background: var(--client);
+  color: #fff;
+}
 .stack__bar .work-badge {
   margin-left: auto;
 }
@@ -1346,4 +1409,13 @@ button.row__main {
   top: 10px;
   right: 10px;
   z-index: 2;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

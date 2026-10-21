@@ -291,6 +291,20 @@ export const SHOTS: Record<string, Shot[]> = {
       "label": "Progress"
     }
   ],
+  "invitation": [
+    {
+      "src": "/projects/shots/invitation/1.webp",
+      "label": "Pick a design"
+    },
+    {
+      "src": "/projects/shots/invitation/2.webp",
+      "label": "Pricing"
+    },
+    {
+      "src": "/projects/shots/invitation/3.webp",
+      "label": "How to order"
+    }
+  ],
   "durian": [
     {
       "src": "/projects/shots/durian/1.webp",
