@@ -14,6 +14,8 @@
   --accent-text: oklch(0.46 0.16 255);
   --work: oklch(0.74 0.15 68); /* professional (production) work highlight */
   --work-text: oklch(0.48 0.12 60);
+  --commercial: oklch(0.62 0.15 160); /* commercial product highlight */
+  --commercial-text: oklch(0.42 0.11 160);
   --client: oklch(0.62 0.17 250); /* client work highlight */
   --client-text: oklch(0.45 0.17 255);
   --nav-h: 64px;
@@ -1403,6 +1405,36 @@ button.row__main {
 .card.is-work,
 .row.is-work {
   box-shadow: inset 0 0 0 2px var(--work);
+}
+.card.is-commercial,
+.row.is-commercial {
+  box-shadow: inset 0 0 0 2px var(--commercial);
+}
+.card.is-commercial .mono-label,
+.row.is-commercial .row__meta {
+  color: var(--commercial-text);
+}
+.stack__win.is-commercial .stack__btn {
+  box-shadow: 0 0 0 2px var(--commercial), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
+}
+.work-badge--commercial {
+  background: var(--commercial);
+  color: #fff;
+}
+.chip--commercial {
+  box-shadow: inset 0 0 0 1.5px var(--commercial);
+}
+.chip--commercial:has(input:checked) {
+  background: var(--commercial);
+  color: #fff;
+  box-shadow: none;
+}
+.chip--commercial input:checked + .chip__box {
+  border-color: #fff;
+  background: transparent;
+}
+.chip--commercial input:checked + .chip__box::after {
+  border-color: #fff;
 }
 .card.is-client,
 .row.is-client {

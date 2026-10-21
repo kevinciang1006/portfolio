@@ -21,9 +21,14 @@ export const urlLabel = (p: Project) =>
 /** Has a window to open: live projects, and private work shown through samples. */
 export const isWork = (p: Project) => p.category === "work";
 
-/** Highlighted categories: professional work is amber, client work is blue. */
-export const highlight = (p: Project): { kind: "work" | "client"; badge: string } | null =>
-  p.category === "work" ? { kind: "work", badge: "Production" } : p.category === "client" ? { kind: "client", badge: "Client" } : null;
+/** Highlighted categories: professional work is amber, commercial products green, client work blue. */
+export type HighlightKind = "work" | "commercial" | "client";
+const HIGHLIGHTS: Partial<Record<ProjectCategory, { kind: HighlightKind; badge: string }>> = {
+  work: { kind: "work", badge: "Production" },
+  commercial: { kind: "commercial", badge: "Commercial" },
+  client: { kind: "client", badge: "Client" },
+};
+export const highlight = (p: Project) => HIGHLIGHTS[p.category] ?? null;
 
 export const canOpen = (p: Project) => !!p.url || !!p.caseStudy;
 

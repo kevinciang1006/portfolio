@@ -10,10 +10,13 @@ type View = "grid" | "list";
 
 const counts = (c: ProjectCategory) => projects.filter((p) => p.category === c).length;
 const categories = CATEGORIES.filter((c) => counts(c.id) > 0);
+// Demos stay hidden until a visitor ticks them, so the index isn't crowded.
+const HIDDEN_BY_DEFAULT: ProjectCategory[] = ["demo"];
 
 export function ProjectIndex({ onOpen }: { onOpen: OpenProject }) {
-  // Every category starts ticked; unticking one hides it.
-  const [shown, setShown] = useState<Set<ProjectCategory>>(() => new Set(categories.map((c) => c.id)));
+  const [shown, setShown] = useState<Set<ProjectCategory>>(
+    () => new Set(categories.map((c) => c.id).filter((id) => !HIDDEN_BY_DEFAULT.includes(id))),
+  );
   const [view, setView] = useState<View>("grid");
 
   const toggle = (id: ProjectCategory) =>
@@ -42,7 +45,7 @@ export function ProjectIndex({ onOpen }: { onOpen: OpenProject }) {
           <fieldset className="chips">
             <legend className="sr-only">Show project types</legend>
             {categories.map((c) => (
-              <label key={c.id} className="chip">
+              <label key={c.id} className={`chip chip--${c.id}`}>
                 <input type="checkbox" checked={shown.has(c.id)} onChange={() => toggle(c.id)} />
                 <span className="chip__box" aria-hidden="true" />
                 {c.chip}
