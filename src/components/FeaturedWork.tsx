@@ -11,6 +11,9 @@ export function FeaturedWork({ onOpen }: { onOpen: OpenProject }) {
         <WindowBar title="~/featured" />
         <div className="win__body">
           <h2 id="work-h">Featured work</h2>
+          <p className="hover-hint hover-hint--inline" aria-hidden="true">
+            <span className="hover-hint__finger">👆</span> Hover a project to preview
+          </p>
           <div className="bento">
             {/* Layout lives in CSS: a 7:5 lead row, then the rest in threes. */}
             {featured.map((p) => (
