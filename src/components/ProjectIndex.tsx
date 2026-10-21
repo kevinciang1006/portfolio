@@ -6,22 +6,23 @@ import { ProjectCard } from "./ProjectCard";
 import type { OpenProject } from "./ProjectCard";
 import { WindowBar } from "./WindowBar";
 
-type Filter = "all" | ProjectCategory;
 type View = "grid" | "list";
 
+const counts = (c: ProjectCategory) => projects.filter((p) => p.category === c).length;
+const categories = CATEGORIES.filter((c) => counts(c.id) > 0);
+
 export function ProjectIndex({ onOpen }: { onOpen: OpenProject }) {
-  const [filter, setFilter] = useState<Filter>("all");
+  // Every category starts ticked; unticking one hides it.
+  const [shown, setShown] = useState<Set<ProjectCategory>>(() => new Set(categories.map((c) => c.id)));
   const [view, setView] = useState<View>("grid");
 
-  const chips: { id: Filter; label: string; count: number }[] = [
-    { id: "all", label: "All", count: projects.length },
-    ...CATEGORIES.map((c) => ({
-      id: c.id as Filter,
-      label: c.chip,
-      count: projects.filter((p) => p.category === c.id).length,
-    })).filter((c) => c.count > 0),
-  ];
-  const visible = filter === "all" ? projects : projects.filter((p) => p.category === filter);
+  const toggle = (id: ProjectCategory) =>
+    setShown((prev) => {
+      const next = new Set(prev);
+      if (!next.delete(id)) next.add(id);
+      return next;
+    });
+  const visible = projects.filter((p) => shown.has(p.category));
 
   return (
     <section id="index" className="section" aria-labelledby="index-h">
@@ -38,14 +39,18 @@ export function ProjectIndex({ onOpen }: { onOpen: OpenProject }) {
               ))}
             </div>
           </div>
-          <div role="group" aria-label="Filter projects" className="chips">
-            {chips.map((c) => (
-              <button key={c.id} type="button" className="chip" aria-pressed={filter === c.id} onClick={() => setFilter(c.id)}>
-                {c.label}
-                <span className="chip__count">{c.count}</span>
-              </button>
+          <fieldset className="chips">
+            <legend className="sr-only">Show project types</legend>
+            {categories.map((c) => (
+              <label key={c.id} className="chip">
+                <input type="checkbox" checked={shown.has(c.id)} onChange={() => toggle(c.id)} />
+                <span className="chip__box" aria-hidden="true" />
+                {c.chip}
+                <span className="chip__count">{counts(c.id)}</span>
+              </label>
             ))}
-          </div>
+          </fieldset>
+          {visible.length === 0 && <p className="index__empty">Nothing selected. Tick a type above to see projects.</p>}
           <ul className={view === "grid" ? "tiles" : "rows"}>
             {visible.map((p) => (
               <ProjectCard key={p.slug} project={p} variant={view === "grid" ? "tile" : "row"} onOpen={onOpen} />

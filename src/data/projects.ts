@@ -1,6 +1,6 @@
 import type { Report } from "../components/ReportViewer";
 
-export type ProjectCategory = "product" | "client" | "demo" | "ai" | "work";
+export type ProjectCategory = "work" | "commercial" | "client" | "demo";
 
 export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
@@ -103,12 +103,21 @@ const allProjects: Project[] = [
     },
   },
   {
-    slug: "studioruang",
-    name: "Studio Ruang",
-    url: "https://studioruang.kevinciang.com",
-    description: "Brand site for a Singapore residential interior design studio, with an enquiry form.",
-    category: "demo",
-    tags: ["Astro", "Supabase", "Tailwind"],
+    slug: "invitation",
+    name: "Studio Undangan",
+    url: "https://invitation.dev.waylenco.com",
+    description: "Digital wedding invitations in Bahasa Indonesia: 19 animated designs that take the couple's names live, with guest links, RSVP and wishes, and a dashboard for the couple. Still in progress.",
+    category: "commercial",
+    tags: ["3D", "Animation", "RSVP"],
+    featured: true,
+  },
+  {
+    slug: "contractor",
+    name: "Sumber Bukit Jaya",
+    url: "https://arch.kevinciang.com",
+    description: "Site for an architecture, interior and construction studio in Indonesia, with a project gallery and WhatsApp enquiries.",
+    category: "client",
+    tags: ["Astro", "React", "Tailwind"],
     featured: true,
   },
   {
@@ -121,13 +130,31 @@ const allProjects: Project[] = [
     featured: true,
   },
   {
+    slug: "durian",
+    name: "Durian Sriraja",
+    url: "https://durian.kevinciang.com",
+    description: "Bilingual, SEO-first site for a family durian orchard in North Sumatra, with a contact form that emails the owners.",
+    category: "client",
+    tags: ["Astro", "Tailwind", "Resend"],
+    featured: false,
+  },
+  {
+    slug: "studioruang",
+    name: "Studio Ruang",
+    url: "https://studioruang.kevinciang.com",
+    description: "Brand site for a Singapore residential interior design studio, with an enquiry form.",
+    category: "demo",
+    tags: ["Astro", "Supabase", "Tailwind"],
+    featured: false,
+  },
+  {
     slug: "office-view",
     name: "The Office",
     url: "https://office.kevinciang.com",
     description: "Live 3D office for my team of AI engineers: each one sits at a desk, types while working, wanders off for coffee on a break, and shows what they're doing right now. Public demo uses a made-up team.",
-    category: "ai",
+    category: "demo",
     tags: ["Three.js", "WebGL", "Bun"],
-    featured: true,
+    featured: false,
   },
   {
     slug: "overlay",
@@ -136,25 +163,7 @@ const allProjects: Project[] = [
     description: "Map-driven explorer for London planning data. Switch metrics on a borough choropleth and drill into each borough.",
     category: "demo",
     tags: ["React", "Mapbox", "Recharts"],
-    featured: true,
-  },
-  {
-    slug: "durian",
-    name: "Durian Sriraja",
-    url: "https://durian.kevinciang.com",
-    description: "Bilingual, SEO-first site for a family durian orchard in North Sumatra, with a contact form that emails the owners.",
-    category: "demo",
-    tags: ["Astro", "Tailwind", "Resend"],
-    featured: true,
-  },
-  {
-    slug: "contractor",
-    name: "Sumber Bukit Jaya",
-    url: "https://arch.kevinciang.com",
-    description: "Site for an architecture, interior and construction studio in Indonesia, with a project gallery and WhatsApp enquiries.",
-    category: "client",
-    tags: ["Astro", "React", "Tailwind"],
-    featured: true,
+    featured: false,
   },
   {
     slug: "lastform",
@@ -386,7 +395,7 @@ const allProjects: Project[] = [
     name: "DevFeed",
     url: "https://devfeed.kevinciang.com",
     description: "Daily learning feed for developers: a short AI-written lesson on a topic you follow, a three-question quiz and a streak. Demo login on the sign-in page.",
-    category: "ai",
+    category: "demo",
     tags: ["React", "Express", "Claude API"],
     featured: false,
   },

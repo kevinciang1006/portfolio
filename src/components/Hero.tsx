@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "../data/profile";
 import { projects } from "../data/projects";
-import { canOpen, hueOf, isWork, urlLabel } from "../lib/project-utils";
+import { canOpen, highlight, hueOf, urlLabel } from "../lib/project-utils";
 import { Thumb } from "./Thumb";
 import type { OpenProject } from "./ProjectCard";
 import { WindowBar } from "./WindowBar";
@@ -48,7 +48,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
             return (
               <div
                 key={p.slug}
-                className={`stack__win${isWork(p) ? " is-work" : ""}`}
+                className={`stack__win${highlight(p) ? ` is-${highlight(p)!.kind}` : ""}`}
                 data-boot={i + 2}
                 style={{ left: s.x, top: s.y, width: s.w, zIndex: s.z, transform: `rotate(${s.r})`, "--i": i + 2 } as CSSProperties}
               >
@@ -58,7 +58,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
                     <span className="stack__title">
                       {p.name} — {urlLabel(p)}
                     </span>
-                    {isWork(p) && <span className="work-badge">Production</span>}
+                    {highlight(p) && <span className={`work-badge work-badge--${highlight(p)!.kind}`}>{highlight(p)!.badge}</span>}
                   </span>
                   <Thumb project={p} eager preview className="thumb--hero" />
                 </button>
