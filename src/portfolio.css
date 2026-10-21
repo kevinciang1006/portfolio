@@ -350,6 +350,47 @@ ol {
   min-width: 0;
   aspect-ratio: 1.12 / 1;
 }
+.hover-hint {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  z-index: 4;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  pointer-events: none;
+}
+.hover-hint--inline {
+  position: static;
+  width: fit-content;
+  margin: -6px 0 16px;
+  background: var(--chip);
+  color: var(--muted);
+}
+.hover-hint__finger {
+  display: inline-block;
+  animation: hint-poke 1.6s ease-in-out infinite;
+}
+@keyframes hint-poke {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .hover-hint {
+    display: inline-flex;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hover-hint__finger {
+    animation: none;
+  }
+}
 .stack__win {
   position: absolute;
 }

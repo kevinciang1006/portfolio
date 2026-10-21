@@ -65,6 +65,9 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
               </div>
             );
           })}
+          <span className="hover-hint" aria-hidden="true">
+            <span className="hover-hint__finger">👆</span> Hover to preview
+          </span>
         </div>
       </section>
 
