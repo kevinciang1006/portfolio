@@ -85,7 +85,7 @@ export function Gallery({ project }: Props) {
         {slides.map((s, i) => (
           <div
             key={s.src + i}
-            className={`gallery__slide${i === at ? " is-active" : ""}`}
+            className={`gallery__slide${i === at ? " is-active" : i < at ? " is-before" : " is-after"}`}
             aria-hidden={i !== at}
           >
             <img src={s.src} alt={i === 0 ? `${project.name}` : `${project.name}: ${s.label}`} loading={i === 0 ? "eager" : "lazy"} decoding="async" />

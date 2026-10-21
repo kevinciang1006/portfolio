@@ -1127,7 +1127,7 @@ button.row__main {
 .btn-close span {
   opacity: 0.6;
 }
-/* gallery: clip first, then screenshots; slides crossfade (fades stay on under reduced motion, movement doesn't) */
+/* gallery: clip first, then screenshots; slides glide left/right like a carousel */
 .gallery {
   margin: 8px;
 }
@@ -1142,15 +1142,16 @@ button.row__main {
 .gallery__slide {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transform: scale(1.025);
-  transition:
-    opacity 0.55s ease,
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   pointer-events: none;
 }
-.gallery__stage .gallery__slide.is-active {
-  opacity: 1;
+.gallery__slide.is-before {
+  transform: translateX(-100%);
+}
+.gallery__slide.is-after {
+  transform: translateX(100%);
+}
+.gallery__slide.is-active {
   transform: none;
   pointer-events: auto;
 }
@@ -1396,11 +1397,13 @@ button.row__main {
   .card--tile.is-live:hover {
     transform: none !important;
   }
-  /* Picture fades are not motion: keep them, drop the scale. */
-  .gallery__slide,
+  /* Picture fades are not motion: keep them. The gallery slide is user-triggered, so it stays too. */
   .thumb video {
     transition: opacity 0.45s ease !important;
     transform: none !important;
+  }
+  .gallery__slide {
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1) !important;
   }
 }
 
