@@ -38,15 +38,22 @@ export function Gallery({ project }: Props) {
   useEffect(() => {
     const v = video.current;
     if (!v) return;
+    const shown = () => v.classList.add("is-playing");
+    v.addEventListener("playing", shown);
     if (at !== 0 || reduced()) {
       v.pause();
-      return;
+      return () => v.removeEventListener("playing", shown);
     }
+    v.classList.remove("is-playing"); // slides in again each time the clip starts
+    if (v.readyState > 0) v.currentTime = 0;
     const t = setTimeout(() => {
       v.muted = true;
       v.play().catch(() => {});
     }, 250);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+      v.removeEventListener("playing", shown);
+    };
   }, [at]);
 
   useEffect(() => {
