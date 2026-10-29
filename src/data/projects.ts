@@ -106,7 +106,7 @@ const allProjects: Project[] = [
     slug: "prospark",
     name: "ProSpark",
     description:
-      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I worked at ProSpark from Feb 2021 to Feb 2022.",
+      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
     category: "work",
     tags: ["Laravel", "PHP", "Vue", "MySQL", "Chart.js", "Passport"],
     featured: false,
@@ -120,7 +120,7 @@ const allProjects: Project[] = [
     name: "Maximize Play · Car Audio Network",
     url: "https://caraudio.network",
     description:
-      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API, built while at ProSpark.",
+      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. I worked at Maximize Play from 2017 to 2021.",
     category: "work",
     tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
     featured: false,
