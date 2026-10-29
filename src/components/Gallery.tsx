@@ -38,15 +38,22 @@ export function Gallery({ project }: Props) {
   useEffect(() => {
     const v = video.current;
     if (!v) return;
+    const shown = () => v.classList.add("is-playing");
+    v.addEventListener("playing", shown);
     if (at !== 0 || reduced()) {
       v.pause();
-      return;
+      return () => v.removeEventListener("playing", shown);
     }
+    v.classList.remove("is-playing"); // slides in again each time the clip starts
+    if (v.readyState > 0) v.currentTime = 0;
     const t = setTimeout(() => {
       v.muted = true;
       v.play().catch(() => {});
     }, 250);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+      v.removeEventListener("playing", shown);
+    };
   }, [at]);
 
   useEffect(() => {
@@ -85,7 +92,7 @@ export function Gallery({ project }: Props) {
         {slides.map((s, i) => (
           <div
             key={s.src + i}
-            className={`gallery__slide${i === at ? " is-active" : ""}`}
+            className={`gallery__slide${i === at ? " is-active" : i < at ? " is-before" : " is-after"}`}
             aria-hidden={i !== at}
           >
             <img src={s.src} alt={i === 0 ? `${project.name}` : `${project.name}: ${s.label}`} loading={i === 0 ? "eager" : "lazy"} decoding="async" />

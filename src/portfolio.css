@@ -14,6 +14,10 @@
   --accent-text: oklch(0.46 0.16 255);
   --work: oklch(0.74 0.15 68); /* professional (production) work highlight */
   --work-text: oklch(0.48 0.12 60);
+  --commercial: oklch(0.62 0.15 160); /* commercial product highlight */
+  --commercial-text: oklch(0.42 0.11 160);
+  --client: oklch(0.62 0.17 250); /* client work highlight */
+  --client-text: oklch(0.45 0.17 255);
   --nav-h: 64px;
   --gutter: clamp(16px, 4vw, 40px);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -348,6 +352,47 @@ ol {
   min-width: 0;
   aspect-ratio: 1.12 / 1;
 }
+.hover-hint {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  z-index: 4;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  pointer-events: none;
+}
+.hover-hint--inline {
+  position: static;
+  width: fit-content;
+  margin: -6px 0 16px;
+  background: var(--chip);
+  color: var(--muted);
+}
+.hover-hint__finger {
+  display: inline-block;
+  animation: hint-poke 1.6s ease-in-out infinite;
+}
+@keyframes hint-poke {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .hover-hint {
+    display: inline-flex;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hover-hint__finger {
+    animation: none;
+  }
+}
 .stack__win {
   position: absolute;
 }
@@ -459,15 +504,11 @@ ol {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  opacity: 0;
-  transform: scale(1.04);
-  transition:
-    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(101%);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   pointer-events: none;
 }
 .thumb video.is-playing {
-  opacity: 1;
   transform: none;
 }
 .thumb--fill {
@@ -698,9 +739,55 @@ button.card__shot {
   font-weight: 500;
   cursor: pointer;
 }
-.chip[aria-pressed="true"] {
+.chip {
+  position: relative;
+  user-select: none;
+}
+.chip input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.chip__box {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--muted-2);
+  border-radius: 4px;
+  background: var(--paper);
+}
+.chip:has(input:checked) {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.chip input:checked + .chip__box {
+  border-color: var(--ink);
   background: var(--ink);
-  color: var(--paper);
+}
+.chip input:checked + .chip__box::after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  margin-top: -2px;
+  border-left: 2px solid var(--paper);
+  border-bottom: 2px solid var(--paper);
+  transform: rotate(-45deg);
+}
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.index__empty {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+fieldset.chips {
+  border: 0;
+  padding: 0;
+  min-width: 0;
 }
 .chip__count {
   font-family: "DM Mono", monospace;
@@ -1036,7 +1123,7 @@ button.row__main {
 .btn-close span {
   opacity: 0.6;
 }
-/* gallery: clip first, then screenshots; slides glide in from the side they come from */
+/* gallery: clip first, then screenshots; slides glide left/right like a carousel */
 .gallery {
   margin: 8px;
 }
@@ -1051,20 +1138,25 @@ button.row__main {
 .gallery__slide {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transform: translateX(8%) scale(0.985);
-  transition:
-    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   pointer-events: none;
 }
-.gallery__stage[data-dir="prev"] .gallery__slide {
-  transform: translateX(-8%) scale(0.985);
+.gallery__slide.is-before {
+  transform: translateX(-100%);
 }
-.gallery__stage .gallery__slide.is-active {
-  opacity: 1;
+.gallery__slide.is-after {
+  transform: translateX(100%);
+}
+.gallery__slide.is-active {
   transform: none;
   pointer-events: auto;
+}
+.gallery__slide video {
+  transform: translateX(101%);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.gallery__slide video.is-playing {
+  transform: none;
 }
 .gallery__slide img,
 .gallery__slide video {
@@ -1308,6 +1400,14 @@ button.row__main {
   .card--tile.is-live:hover {
     transform: none !important;
   }
+  /* The preview clip and gallery slide are triggered by the visitor (hover, open, click), so they keep their slide. */
+  .thumb video,
+  .gallery__slide video {
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1) !important;
+  }
+  .gallery__slide {
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1) !important;
+  }
 }
 
 /* ── professional work highlight ────────────────────────── */
@@ -1315,12 +1415,49 @@ button.row__main {
 .row.is-work {
   box-shadow: inset 0 0 0 2px var(--work);
 }
+.card.is-commercial,
+.row.is-commercial {
+  box-shadow: inset 0 0 0 2px var(--commercial);
+}
+.card.is-commercial .mono-label,
+.row.is-commercial .row__meta {
+  color: var(--commercial-text);
+}
+.stack__win.is-commercial .stack__btn {
+  box-shadow: 0 0 0 2px var(--commercial), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
+}
+.chip--commercial {
+  box-shadow: inset 0 0 0 1.5px var(--commercial);
+}
+.chip--commercial:has(input:checked) {
+  background: var(--commercial);
+  color: #fff;
+  box-shadow: none;
+}
+.chip--commercial input:checked + .chip__box {
+  border-color: #fff;
+  background: transparent;
+}
+.chip--commercial input:checked + .chip__box::after {
+  border-color: #fff;
+}
+.card.is-client,
+.row.is-client {
+  box-shadow: inset 0 0 0 2px var(--client);
+}
 .card.is-work .mono-label,
 .row.is-work .row__meta {
   color: var(--work-text);
 }
+.card.is-client .mono-label,
+.row.is-client .row__meta {
+  color: var(--client-text);
+}
 .stack__win.is-work .stack__btn {
   box-shadow: 0 0 0 2px var(--work), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
+}
+.stack__win.is-client .stack__btn {
+  box-shadow: 0 0 0 2px var(--client), 0 24px 60px -36px rgba(20, 40, 50, 0.5);
 }
 .work-badge {
   display: inline-flex;
@@ -1334,6 +1471,14 @@ button.row__main {
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
+.work-badge--commercial {
+  background: var(--commercial);
+  color: #fff;
+}
+.work-badge--client {
+  background: var(--client);
+  color: #fff;
+}
 .stack__bar .work-badge {
   margin-left: auto;
 }
@@ -1346,4 +1491,13 @@ button.row__main {
   top: 10px;
   right: 10px;
   z-index: 2;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

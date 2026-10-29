@@ -1,11 +1,10 @@
 import type { Project, ProjectCategory } from "../data/projects";
 
 export const CATEGORIES: { id: ProjectCategory; label: string; chip: string }[] = [
-  { id: "work", label: "Professional work", chip: "Professional work" },
-  { id: "product", label: "Product", chip: "Products" },
-  { id: "client", label: "Client site", chip: "Client sites" },
+  { id: "work", label: "Professional work", chip: "Professional Work" },
+  { id: "commercial", label: "Commercial product", chip: "Commercial Product" },
+  { id: "client", label: "Client work", chip: "Client Work" },
   { id: "demo", label: "Demo", chip: "Demos" },
-  { id: "ai", label: "AI", chip: "AI" },
 ];
 
 export const categoryLabel = (p: Project) =>
@@ -21,6 +20,15 @@ export const urlLabel = (p: Project) =>
 
 /** Has a window to open: live projects, and private work shown through samples. */
 export const isWork = (p: Project) => p.category === "work";
+
+/** Highlighted categories: professional work is amber, commercial products green, client work blue. */
+export type HighlightKind = "work" | "commercial" | "client";
+const HIGHLIGHTS: Partial<Record<ProjectCategory, { kind: HighlightKind; badge: string }>> = {
+  work: { kind: "work", badge: "Production" },
+  commercial: { kind: "commercial", badge: "Commercial" },
+  client: { kind: "client", badge: "Client" },
+};
+export const highlight = (p: Project) => HIGHLIGHTS[p.category] ?? null;
 
 export const canOpen = (p: Project) => !!p.url || !!p.caseStudy;
 
