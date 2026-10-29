@@ -5,6 +5,8 @@ export const CATEGORIES: { id: ProjectCategory; label: string; chip: string }[] 
   { id: "commercial", label: "Commercial product", chip: "Commercial Product" },
   { id: "client", label: "Client work", chip: "Client Work" },
   { id: "demo", label: "Demo", chip: "Demos" },
+  { id: "app", label: "App", chip: "Apps" },
+  { id: "game", label: "Game", chip: "Games" },
 ];
 
 export const categoryLabel = (p: Project) =>

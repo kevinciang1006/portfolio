@@ -1,6 +1,6 @@
 import type { Report } from "../components/ReportViewer";
 
-export type ProjectCategory = "work" | "commercial" | "client" | "demo";
+export type ProjectCategory = "work" | "commercial" | "client" | "demo" | "app" | "game";
 
 export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
@@ -124,6 +124,32 @@ const allProjects: Project[] = [
     category: "work",
     tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
     featured: false,
+  },
+  {
+    slug: "orang-utan-rescue",
+    name: "Orang Utan Rescue",
+    description:
+      "Action game where you rescue baby orangutans from forest fires, dodging snakes, piranha and thorns on the way. Built in Unity for iOS and Android at Maximize Play, where I was the developer.",
+    category: "game",
+    tags: ["Unity", "C#", "iOS", "Android"],
+    featured: false,
+    caseStudy: {
+      note: "There is no web version of this game, so these are the App Store screenshots.",
+      reports: [],
+    },
+  },
+  {
+    slug: "vihara-borobudur",
+    name: "Vihara Borobudur",
+    description:
+      "Mobile app for a Buddhist temple in Medan: browse events, check in with a QR code, follow your attendance and make donations. Built at Maximize Play with Ionic and Angular on a Laravel API and Firebase, and still in use.",
+    category: "app",
+    tags: ["Ionic", "Angular", "Laravel", "Firebase"],
+    featured: false,
+    caseStudy: {
+      note: "The app is distributed through the app stores for the temple's community, so these are screenshots from the iPhone and iPad builds.",
+      reports: [],
+    },
   },
   {
     slug: "invitation",

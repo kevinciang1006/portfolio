@@ -942,5 +942,53 @@ export const SHOTS: Record<string, Shot[]> = {
       "src": "/projects/shots/maximize-play/10.webp",
       "label": "Login"
     }
+  ],
+  "orang-utan-rescue": [
+    {
+      "src": "/projects/shots/orang-utan-rescue/1.webp",
+      "label": "Title screen"
+    },
+    {
+      "src": "/projects/shots/orang-utan-rescue/2.webp",
+      "label": "Gameplay"
+    },
+    {
+      "src": "/projects/shots/orang-utan-rescue/3.webp",
+      "label": "Gameplay"
+    },
+    {
+      "src": "/projects/shots/orang-utan-rescue/4.webp",
+      "label": "Title screen (iPad)"
+    },
+    {
+      "src": "/projects/shots/orang-utan-rescue/5.webp",
+      "label": "Gameplay (iPad)"
+    },
+    {
+      "src": "/projects/shots/orang-utan-rescue/6.webp",
+      "label": "Gameplay (iPad)"
+    }
+  ],
+  "vihara-borobudur": [
+    {
+      "src": "/projects/shots/vihara-borobudur/1.webp",
+      "label": "Sign in, events and attendance"
+    },
+    {
+      "src": "/projects/shots/vihara-borobudur/2.webp",
+      "label": "Event details and profile"
+    },
+    {
+      "src": "/projects/shots/vihara-borobudur/3.webp",
+      "label": "iPad: sign in and events"
+    },
+    {
+      "src": "/projects/shots/vihara-borobudur/4.webp",
+      "label": "iPad: event and attendance"
+    },
+    {
+      "src": "/projects/shots/vihara-borobudur/5.webp",
+      "label": "iPad and iPhone"
+    }
   ]
 };
