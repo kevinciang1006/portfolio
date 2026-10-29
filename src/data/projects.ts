@@ -1,6 +1,6 @@
 import type { Report } from "../components/ReportViewer";
 
-export type ProjectCategory = "work" | "commercial" | "client" | "demo";
+export type ProjectCategory = "work" | "commercial" | "client" | "demo" | "app" | "game";
 
 export interface Project {
   slug: string; // also the thumbnail filename: /projects/{slug}.webp
@@ -106,7 +106,7 @@ const allProjects: Project[] = [
     slug: "prospark",
     name: "ProSpark",
     description:
-      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I worked at ProSpark from Feb 2021 to Feb 2022.",
+      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
     category: "work",
     tags: ["Laravel", "PHP", "Vue", "MySQL", "Chart.js", "Passport"],
     featured: false,
@@ -120,9 +120,32 @@ const allProjects: Project[] = [
     name: "Maximize Play · Car Audio Network",
     url: "https://caraudio.network",
     description:
-      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API, built while at ProSpark.",
+      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. I worked at Maximize Play from 2017 to 2021.",
     category: "work",
     tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
+    featured: false,
+  },
+  {
+    slug: "orang-utan-rescue",
+    name: "Orang Utan Rescue",
+    description:
+      "Action game where you rescue baby orangutans from forest fires, dodging snakes, piranha and thorns on the way. Built in Unity for iOS and Android at Maximize Play, where I was the developer.",
+    category: "game",
+    tags: ["Unity", "C#", "iOS", "Android"],
+    featured: false,
+    caseStudy: {
+      note: "There is no web version of this game, so these are the App Store screenshots.",
+      reports: [],
+    },
+  },
+  {
+    slug: "vihara-borobudur",
+    name: "Vihara Borobudur",
+    url: "https://play.google.com/store/apps/details?id=com.vihara.borobudur.com",
+    description:
+      "Mobile app for a Buddhist temple in Medan: browse events, check in with a QR code, follow your attendance and make donations. Built at Maximize Play with Ionic and Angular on a Laravel API and Firebase, and still in use.",
+    category: "app",
+    tags: ["Ionic", "Angular", "Laravel", "Firebase"],
     featured: false,
   },
   {

@@ -42,12 +42,14 @@ export const experience: Job[] = [
     org: "ProSpark",
     role: "Dev Team Lead · Full Stack Developer",
     when: "Feb 2021 – Feb 2022",
+    project: "prospark",
     note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut.",
   },
   {
     org: "Maximize Play",
     role: "Full Stack & Game Developer",
     when: "Mar 2017 – Feb 2021",
+    project: "maximize-play",
     note: "Built web and mobile apps plus games, from the UI to real-time game logic.",
   },
 ];
