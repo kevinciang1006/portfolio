@@ -122,7 +122,7 @@ export function ProjectWindow({ project, origin, onClose }: Props) {
               ))}
             </ul>
           </div>
-          {project.caseStudy && (
+          {project.caseStudy && project.caseStudy.reports.length > 0 && (
             <div className="modal__downloads">
               {project.caseStudy.reports.map((r) => (
                 <button key={r.label} type="button" className="btn-chip" onClick={() => setReport(r)}>

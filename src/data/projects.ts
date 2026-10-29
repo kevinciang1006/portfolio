@@ -103,6 +103,29 @@ const allProjects: Project[] = [
     },
   },
   {
+    slug: "prospark",
+    name: "ProSpark",
+    description:
+      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I worked at ProSpark from Feb 2021 to Feb 2022.",
+    category: "work",
+    tags: ["Laravel", "PHP", "Vue", "MySQL", "Chart.js", "Passport"],
+    featured: false,
+    caseStudy: {
+      note: "Private platform, so no live link. The screens run on a local copy with a made-up company and people.",
+      reports: [],
+    },
+  },
+  {
+    slug: "maximize-play",
+    name: "Maximize Play · Car Audio Network",
+    url: "https://caraudio.network",
+    description:
+      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API, built while at ProSpark.",
+    category: "work",
+    tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
+    featured: false,
+  },
+  {
     slug: "studioruang",
     name: "Studio Ruang",
     url: "https://studioruang.kevinciang.com",
