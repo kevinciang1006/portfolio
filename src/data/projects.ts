@@ -141,15 +141,12 @@ const allProjects: Project[] = [
   {
     slug: "vihara-borobudur",
     name: "Vihara Borobudur",
+    url: "https://play.google.com/store/apps/details?id=com.vihara.borobudur.com",
     description:
       "Mobile app for a Buddhist temple in Medan: browse events, check in with a QR code, follow your attendance and make donations. Built at Maximize Play with Ionic and Angular on a Laravel API and Firebase, and still in use.",
     category: "app",
     tags: ["Ionic", "Angular", "Laravel", "Firebase"],
     featured: false,
-    caseStudy: {
-      note: "The app is distributed through the app stores for the temple's community, so these are screenshots from the iPhone and iPad builds.",
-      reports: [],
-    },
   },
   {
     slug: "invitation",
