@@ -850,5 +850,97 @@ export const SHOTS: Record<string, Shot[]> = {
       "src": "/projects/shots/office-view/4.webp",
       "label": "Another angle"
     }
+  ],
+  "prospark": [
+    {
+      "src": "/projects/shots/prospark/1.webp",
+      "label": "Admin dashboard"
+    },
+    {
+      "src": "/projects/shots/prospark/2.webp",
+      "label": "Course detail"
+    },
+    {
+      "src": "/projects/shots/prospark/3.webp",
+      "label": "Course marketplace"
+    },
+    {
+      "src": "/projects/shots/prospark/4.webp",
+      "label": "Learner dashboard"
+    },
+    {
+      "src": "/projects/shots/prospark/5.webp",
+      "label": "Lesson player"
+    },
+    {
+      "src": "/projects/shots/prospark/6.webp",
+      "label": "Certificates"
+    },
+    {
+      "src": "/projects/shots/prospark/7.webp",
+      "label": "Badges"
+    },
+    {
+      "src": "/projects/shots/prospark/8.webp",
+      "label": "Report: overview"
+    },
+    {
+      "src": "/projects/shots/prospark/9.webp",
+      "label": "Report: activity and engagement"
+    },
+    {
+      "src": "/projects/shots/prospark/10.webp",
+      "label": "Report: courses"
+    },
+    {
+      "src": "/projects/shots/prospark/11.webp",
+      "label": "Report: scores"
+    },
+    {
+      "src": "/projects/shots/prospark/12.webp",
+      "label": "Learner activity"
+    }
+  ],
+  "maximize-play": [
+    {
+      "src": "/projects/shots/maximize-play/1.webp",
+      "label": "Home feed"
+    },
+    {
+      "src": "/projects/shots/maximize-play/2.webp",
+      "label": "Winners showcase"
+    },
+    {
+      "src": "/projects/shots/maximize-play/3.webp",
+      "label": "Participants and judges"
+    },
+    {
+      "src": "/projects/shots/maximize-play/4.webp",
+      "label": "Events calendar"
+    },
+    {
+      "src": "/projects/shots/maximize-play/5.webp",
+      "label": "Participant leaderboard"
+    },
+    {
+      "src": "/projects/shots/maximize-play/6.webp",
+      "label": "Car detail"
+    },
+    {
+      "src": "/projects/shots/maximize-play/7.webp",
+      "label": "News manager"
+    },
+    {
+      "src": "/projects/shots/maximize-play/8.webp",
+      "label": "Sound library"
+    },
+    {
+      "src": "/projects/shots/maximize-play/9.webp",
+      "label": "Rulebooks"
+    },
+    {
+      "src": "/projects/shots/maximize-play/10.webp",
+      "label": "Login"
+    }
   ]
 };
