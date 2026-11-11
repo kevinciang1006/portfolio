@@ -44,7 +44,7 @@ export const experience: Job[] = [
     role: "Dev Team Lead · Full Stack Developer",
     when: "Feb 2021 – Feb 2022",
     project: "prospark",
-    note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut.",
+    note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut, each with thousands of users.",
   },
   {
     org: "Maximize Play",

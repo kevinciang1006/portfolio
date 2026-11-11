@@ -114,7 +114,7 @@ const allProjects: Project[] = [
     slug: "prospark",
     name: "ProSpark",
     description:
-      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
+      "Corporate learning platform for clients like Gojek and Pizza Hut, each with thousands of users: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
     category: "work",
     tags: ["Laravel", "PHP", "Vue", "MySQL", "Chart.js", "Passport"],
     featured: false,
