@@ -160,7 +160,7 @@ const allProjects: Project[] = [
     slug: "invitation",
     name: "Studio Undangan",
     url: "https://invitation.dev.waylenco.com",
-    description: "Digital wedding invitations in Bahasa Indonesia: 19 animated designs that take the couple's names live, with guest links, RSVP and wishes, and a dashboard for the couple. Still in progress.",
+    description: "Digital wedding invitations in Bahasa Indonesia: 100+ animated templates that take the couple's names live, with guest links, RSVP and wishes, and a dashboard for the couple. Still in progress.",
     category: "commercial",
     tags: ["3D", "Animation", "RSVP"],
     featured: true,

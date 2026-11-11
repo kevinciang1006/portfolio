@@ -1537,3 +1537,8 @@ button.row__main {
   margin-top: 8px;
   line-height: 1.5;
 }
+.hero__body p.hero__personal {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--muted-2);
+}

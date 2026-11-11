@@ -29,6 +29,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
             <h1>{profile.name}</h1>
             <p className="hero__tagline">{profile.tagline}</p>
             <p>{profile.intro}</p>
+            <p className="hero__personal">{profile.personal}</p>
             <div className="hero__links">
               <a className="btn-primary" href={`mailto:${profile.email}`}>
                 <Mail size={16} aria-hidden="true" /> Email me

@@ -1,5 +1,6 @@
 export const profile = {
   name: "Kevin Ciang",
+  personal: "Outside work I'm out with my family: trips, eating out, or just getting outside and touching grass.",
   tagline: "I build the frontend of B2B SaaS, down to the last printed page.",
   intro:
     "Senior software engineer, eight years in, mostly frontend. Most recently I led the frontend of a leadership-assessment platform for a Singapore consultancy, used by Schneider Electric and Santen Pharmaceutical. Based in Medan, working Singapore hours.",
