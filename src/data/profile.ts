@@ -51,7 +51,7 @@ export const experience: Job[] = [
     role: "Full Stack & Game Developer",
     when: "Mar 2017 – Feb 2021",
     project: "maximize-play",
-    note: "Built web and mobile apps plus games, from the UI to real-time game logic, including a car-audio competition platform still running ~300 events since 2019.",
+    note: "Built web and mobile apps plus games, from the UI to real-time game logic, including a car-audio competition platform still in use since 2019: ~300 events, 3,340 competitors.",
   },
 ];
 
