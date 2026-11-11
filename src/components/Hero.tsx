@@ -26,7 +26,10 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
         <div className="win win--hero" data-boot="1" style={{ "--i": 1 } as CSSProperties}>
           <WindowBar title="About" />
           <div className="hero__body">
-            <h1>{profile.name}</h1>
+            <div className="hero__id">
+              <img className="hero__photo" src="/profile.jpeg" alt="Kevin Ciang" width="88" height="88" />
+              <h1>{profile.name}</h1>
+            </div>
             <p className="hero__tagline">{profile.tagline}</p>
             <p>{profile.intro}</p>
             <p className="hero__personal">{profile.personal}</p>
