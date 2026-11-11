@@ -61,7 +61,7 @@ export function Nav() {
     <header className="nav" data-boot="0">
       <nav aria-label="Primary" className="nav__links">
         <a href="#top" className="nav__brand" onClick={(e) => go(e, "#top")}>
-          kevin.os
+          Kevin Ciang
         </a>
         {LINKS.map((l) => (
           <a key={l.href} href={l.href} onClick={(e) => go(e, l.href)}>

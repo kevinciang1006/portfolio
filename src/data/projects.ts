@@ -13,7 +13,7 @@ export interface Project {
   featured: boolean;
   thumbnail?: string; // defaults to /projects/{slug}.webp
   // Professional work on a private platform: opens a window of cleaned screens and sample files instead of a live link.
-  caseStudy?: { note: string; reports: Report[] };
+  caseStudy?: { note: string; story?: { title: string; paragraphs: string[] }; reports: Report[] };
 }
 
 // Adding a project = adding one entry here. Order matters: entries are listed
@@ -24,12 +24,20 @@ const allProjects: Project[] = [
     slug: "organisation-solutions",
     name: "Lea · Organisation Solutions",
     description:
-      "Leadership-assessment SaaS for a Singapore consultancy. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports the platform generates.",
+      "Leadership-assessment SaaS for a Singapore consultancy, used by Schneider Electric and Santen Pharmaceutical. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports, 1,000+ generated so far.",
     category: "work",
     tags: ["React", "TypeScript", "WorkOS", "Stripe", "PostHog", "Puppeteer"],
     featured: true,
     caseStudy: {
       note: "Private client platform, so no live link. The screens use made-up people and companies, and sample report pages have their text blurred so only the design shows.",
+      story: {
+        title: "The hard part: reports that fit every page, in every language",
+        paragraphs: [
+          "After an assessment, leaders and teams get their results as a branded PDF, generated with Puppeteer. The reports had to match the designer's Figma as closely as possible, and a printed page is less forgiving than a screen: every section had to fit its page without being cut off or spilling onto the next.",
+          "The reports are also multilingual, and the same text can run much longer in one language than another. A layout that fit perfectly in English could break in another language, so the design leaves room for longer text, and I checked every report language by language.",
+          "Nobody notices a report that fits. They only notice when it doesn't. Next time I'd add per-language screenshot checks so a layout break shows up automatically.",
+        ],
+      },
       reports: [
         {
           label: "Group report",
@@ -65,7 +73,7 @@ const allProjects: Project[] = [
     slug: "produgie",
     name: "Produgie",
     description:
-      "Leadership development platform: growth sprints, behaviour analytics and Growth Leader assessments. I owned the Sprint module across the Angular apps and its end-to-end tests, and built the assessment PDF reports.",
+      "Leadership development platform used by hundreds of leaders at 3M, Gojek and Schneider Electric: growth sprints, behaviour analytics and Growth Leader assessments. I owned the Sprint module across the Angular apps and its end-to-end tests, and built the assessment PDF reports.",
     category: "work",
     tags: ["Angular", "TypeScript", "Scala Play", "Cypress", "ApexCharts"],
     featured: true,
@@ -106,7 +114,7 @@ const allProjects: Project[] = [
     slug: "prospark",
     name: "ProSpark",
     description:
-      "Corporate learning platform: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
+      "Corporate learning platform for clients like Gojek and Pizza Hut, each with thousands of users: courses and lessons, learner progress, points and badges, a course marketplace, certificates, and admin reports with charts. Laravel 6 and Vue 2. I led the dev team there from Feb 2021 to Feb 2022.",
     category: "work",
     tags: ["Laravel", "PHP", "Vue", "MySQL", "Chart.js", "Passport"],
     featured: false,
@@ -120,7 +128,7 @@ const allProjects: Project[] = [
     name: "Maximize Play · Car Audio Network",
     url: "https://caraudio.network",
     description:
-      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. I worked at Maximize Play from 2017 to 2021.",
+      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. In use since 2019, with around 300 events, 3,340 competitors and 910 judges on it so far. I worked at Maximize Play from 2017 to 2021.",
     category: "work",
     tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
     featured: false,
@@ -152,7 +160,7 @@ const allProjects: Project[] = [
     slug: "invitation",
     name: "Studio Undangan",
     url: "https://invitation.dev.waylenco.com",
-    description: "Digital wedding invitations in Bahasa Indonesia: 19 animated designs that take the couple's names live, with guest links, RSVP and wishes, and a dashboard for the couple. Still in progress.",
+    description: "Digital wedding invitations in Bahasa Indonesia: 100+ animated templates that take the couple's names live, with guest links, RSVP and wishes, and a dashboard for the couple. Still in progress.",
     category: "commercial",
     tags: ["3D", "Animation", "RSVP"],
     featured: true,

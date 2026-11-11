@@ -8,7 +8,7 @@ export function FeaturedWork({ onOpen }: { onOpen: OpenProject }) {
   return (
     <section id="work" className="section" aria-labelledby="work-h">
       <div className="win">
-        <WindowBar title="~/featured" />
+        <WindowBar title="Featured" />
         <div className="win__body">
           <h2 id="work-h">Featured work</h2>
           <p className="hover-hint hover-hint--inline" aria-hidden="true">

@@ -21,7 +21,7 @@ export function Contact() {
   return (
     <section id="contact" className="contact" aria-labelledby="contact-h">
       <div className="win win--contact">
-        <WindowBar title="new-message" />
+        <WindowBar title="Contact" />
         <div className="contact__body">
           <h2 id="contact-h">{profile.contactHeading}</h2>
           <p>{profile.contactNote}</p>

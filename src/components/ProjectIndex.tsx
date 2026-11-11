@@ -30,7 +30,7 @@ export function ProjectIndex({ onOpen }: { onOpen: OpenProject }) {
   return (
     <section id="index" className="section" aria-labelledby="index-h">
       <div className="win">
-        <WindowBar title={`~/projects — ${visible.length} item${visible.length === 1 ? "" : "s"}`} />
+        <WindowBar title={`All projects · ${visible.length} item${visible.length === 1 ? "" : "s"}`} />
         <div className="win__body">
           <div className="index__head">
             <h2 id="index-h">All projects</h2>

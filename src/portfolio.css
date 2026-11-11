@@ -1501,3 +1501,44 @@ button.row__main {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* Polish round (Nov 2026): tagline, real thumbnails in the dock, case-study story */
+.hero__body p.hero__tagline {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink, inherit);
+}
+.dock__icon--thumb {
+  overflow: hidden;
+  padding: 0;
+}
+.dock__icon--thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+.modal__story {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line, rgba(0, 0, 0, 0.08));
+}
+.modal__story h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.modal__story p {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.hero__body p.hero__personal {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--muted-2);
+}

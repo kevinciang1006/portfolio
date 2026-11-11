@@ -24,10 +24,12 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
     <>
       <section className="hero" aria-label="Introduction">
         <div className="win win--hero" data-boot="1" style={{ "--i": 1 } as CSSProperties}>
-          <WindowBar title="about.md" />
+          <WindowBar title="About" />
           <div className="hero__body">
             <h1>{profile.name}</h1>
+            <p className="hero__tagline">{profile.tagline}</p>
             <p>{profile.intro}</p>
+            <p className="hero__personal">{profile.personal}</p>
             <div className="hero__links">
               <a className="btn-primary" href={`mailto:${profile.email}`}>
                 <Mail size={16} aria-hidden="true" /> Email me
@@ -75,8 +77,8 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
         {dock.map((p) => {
           const inner = (
             <>
-              <span className="dock__icon" style={{ "--hue": hueOf(p.slug) } as CSSProperties}>
-                {p.name[0].toUpperCase()}
+              <span className="dock__icon dock__icon--thumb" style={{ "--hue": hueOf(p.slug) } as CSSProperties}>
+                <img src={p.thumbnail ?? `/projects/${p.slug}.webp`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="dock__name">{p.name}</span>
             </>

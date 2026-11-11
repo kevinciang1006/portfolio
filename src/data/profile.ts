@@ -1,7 +1,9 @@
 export const profile = {
   name: "Kevin Ciang",
+  personal: "Outside work I'm out with my family: trips, eating out, or just getting outside and touching grass.",
+  tagline: "I build the frontend of B2B SaaS, down to the last printed page.",
   intro:
-    "Senior software engineer with eight years of experience, mostly frontend for B2B SaaS. Most recently led the frontend of a leadership assessment platform for a Singapore company. Based in Medan, working Singapore hours.",
+    "Senior software engineer, eight years in, mostly frontend. Most recently I led the frontend of a leadership-assessment platform for a Singapore consultancy, used by Schneider Electric and Santen Pharmaceutical. Based in Medan, working Singapore hours.",
   availability: "Open to senior/staff roles",
   city: "Medan",
   timeZone: "Asia/Jakarta",
@@ -29,28 +31,28 @@ export const experience: Job[] = [
     role: "Senior Software Engineer",
     when: "Jun 2025 – Apr 2026",
     project: "organisation-solutions",
-    note: "Led the frontend of a leadership-assessment SaaS platform. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
+    note: "Led the frontend of a leadership-assessment SaaS platform that has generated 1,000+ branded PDF reports. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
   },
   {
     org: "Produgie",
     role: "Senior Software Engineer",
     when: "Feb 2022 – May 2025",
     project: "produgie",
-    note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests.",
+    note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests. Used by hundreds of leaders at 3M, Gojek and Schneider Electric.",
   },
   {
     org: "ProSpark",
     role: "Dev Team Lead · Full Stack Developer",
     when: "Feb 2021 – Feb 2022",
     project: "prospark",
-    note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut.",
+    note: "Led a team of five on LMS customization for clients including Gojek and Pizza Hut, each with thousands of users.",
   },
   {
     org: "Maximize Play",
     role: "Full Stack & Game Developer",
     when: "Mar 2017 – Feb 2021",
     project: "maximize-play",
-    note: "Built web and mobile apps plus games, from the UI to real-time game logic.",
+    note: "Built web and mobile apps plus games, from the UI to real-time game logic, including a car-audio competition platform still in use since 2019: ~300 events, 3,340 competitors, 910 judges.",
   },
 ];
 
