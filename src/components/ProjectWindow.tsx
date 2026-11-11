@@ -115,6 +115,14 @@ export function ProjectWindow({ project, origin, onClose }: Props) {
               <span className="mono-label">{categoryLabel(project)}</span>
             </div>
             <p>{project.description}</p>
+            {project.caseStudy?.story && (
+              <div className="modal__story">
+                <h3>{project.caseStudy.story.title}</h3>
+                {project.caseStudy.story.paragraphs.map((t, i) => (
+                  <p key={i}>{t}</p>
+                ))}
+              </div>
+            )}
             {project.caseStudy && <p className="modal__note">{project.caseStudy.note}</p>}
             <ul className="tags tags--lg" aria-label="Tech">
               {project.tags.map((t) => (

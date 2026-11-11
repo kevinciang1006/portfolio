@@ -1,7 +1,8 @@
 export const profile = {
   name: "Kevin Ciang",
+  tagline: "I build the frontend of B2B SaaS, down to the last printed page.",
   intro:
-    "Senior software engineer with eight years of experience, mostly frontend for B2B SaaS. Most recently led the frontend of a leadership assessment platform for a Singapore company. Based in Medan, working Singapore hours.",
+    "Senior software engineer, eight years in, mostly frontend. Most recently I led the frontend of a leadership-assessment platform for a Singapore consultancy whose clients include Microsoft, Morgan Stanley, Prudential and Gojek. Based in Medan, working Singapore hours.",
   availability: "Open to senior/staff roles",
   city: "Medan",
   timeZone: "Asia/Jakarta",
@@ -29,7 +30,7 @@ export const experience: Job[] = [
     role: "Senior Software Engineer",
     when: "Jun 2025 – Apr 2026",
     project: "organisation-solutions",
-    note: "Led the frontend of a leadership-assessment SaaS platform. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
+    note: "Led the frontend of a leadership-assessment SaaS platform that has generated 1,000+ branded PDF reports. Integrated WorkOS, Stripe, PostHog, Courier and Puppeteer.",
   },
   {
     org: "Produgie",

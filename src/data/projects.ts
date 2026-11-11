@@ -13,7 +13,7 @@ export interface Project {
   featured: boolean;
   thumbnail?: string; // defaults to /projects/{slug}.webp
   // Professional work on a private platform: opens a window of cleaned screens and sample files instead of a live link.
-  caseStudy?: { note: string; reports: Report[] };
+  caseStudy?: { note: string; story?: { title: string; paragraphs: string[] }; reports: Report[] };
 }
 
 // Adding a project = adding one entry here. Order matters: entries are listed
@@ -24,12 +24,20 @@ const allProjects: Project[] = [
     slug: "organisation-solutions",
     name: "Lea · Organisation Solutions",
     description:
-      "Leadership-assessment SaaS for a Singapore consultancy. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports the platform generates.",
+      "Leadership-assessment SaaS for a Singapore consultancy whose clients include Microsoft, Morgan Stanley, Prudential and Gojek. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports, 1,000+ generated so far.",
     category: "work",
     tags: ["React", "TypeScript", "WorkOS", "Stripe", "PostHog", "Puppeteer"],
     featured: true,
     caseStudy: {
       note: "Private client platform, so no live link. The screens use made-up people and companies, and sample report pages have their text blurred so only the design shows.",
+      story: {
+        title: "The hard part: reports that fit every page, in every language",
+        paragraphs: [
+          "After an assessment, leaders and teams get their results as a branded PDF, generated with Puppeteer. The reports had to match the designer's Figma as closely as possible, and a printed page is less forgiving than a screen: every section had to fit its page without being cut off or spilling onto the next.",
+          "The reports are also multilingual, and the same text can run much longer in one language than another. A layout that fit perfectly in English could break in another language, so the design leaves room for longer text, and I checked every report language by language.",
+          "Nobody notices a report that fits. They only notice when it doesn't. Next time I'd add per-language screenshot checks so a layout break shows up automatically.",
+        ],
+      },
       reports: [
         {
           label: "Group report",

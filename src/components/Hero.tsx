@@ -27,6 +27,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
           <WindowBar title="about.md" />
           <div className="hero__body">
             <h1>{profile.name}</h1>
+            <p className="hero__tagline">{profile.tagline}</p>
             <p>{profile.intro}</p>
             <div className="hero__links">
               <a className="btn-primary" href={`mailto:${profile.email}`}>
@@ -75,8 +76,8 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
         {dock.map((p) => {
           const inner = (
             <>
-              <span className="dock__icon" style={{ "--hue": hueOf(p.slug) } as CSSProperties}>
-                {p.name[0].toUpperCase()}
+              <span className="dock__icon dock__icon--thumb" style={{ "--hue": hueOf(p.slug) } as CSSProperties}>
+                <img src={p.thumbnail ?? `/projects/${p.slug}.webp`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="dock__name">{p.name}</span>
             </>
