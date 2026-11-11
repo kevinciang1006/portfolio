@@ -2,7 +2,7 @@ export const profile = {
   name: "Kevin Ciang",
   tagline: "I build the frontend of B2B SaaS, down to the last printed page.",
   intro:
-    "Senior software engineer, eight years in, mostly frontend. Most recently I led the frontend of a leadership-assessment platform for a Singapore consultancy whose clients include Microsoft, Morgan Stanley, Prudential and Gojek. Based in Medan, working Singapore hours.",
+    "Senior software engineer, eight years in, mostly frontend. Most recently I led the frontend of a leadership-assessment platform for a Singapore consultancy, used by Schneider Electric and Santen Pharmaceutical. Based in Medan, working Singapore hours.",
   availability: "Open to senior/staff roles",
   city: "Medan",
   timeZone: "Asia/Jakarta",
@@ -37,7 +37,7 @@ export const experience: Job[] = [
     role: "Senior Software Engineer",
     when: "Feb 2022 – May 2025",
     project: "produgie",
-    note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests.",
+    note: "Owned the Sprint module across Angular assessment platforms (GLA / GL360) and its end-to-end tests. Used by hundreds of leaders at 3M, Gojek and Schneider Electric.",
   },
   {
     org: "ProSpark",

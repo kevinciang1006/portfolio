@@ -24,7 +24,7 @@ const allProjects: Project[] = [
     slug: "organisation-solutions",
     name: "Lea · Organisation Solutions",
     description:
-      "Leadership-assessment SaaS for a Singapore consultancy whose clients include Microsoft, Morgan Stanley, Prudential and Gojek. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports, 1,000+ generated so far.",
+      "Leadership-assessment SaaS for a Singapore consultancy, used by Schneider Electric and Santen Pharmaceutical. I led the frontend: assessing leaders and teams, a workspace and token billing admin, and the branded PDF reports, 1,000+ generated so far.",
     category: "work",
     tags: ["React", "TypeScript", "WorkOS", "Stripe", "PostHog", "Puppeteer"],
     featured: true,
@@ -73,7 +73,7 @@ const allProjects: Project[] = [
     slug: "produgie",
     name: "Produgie",
     description:
-      "Leadership development platform: growth sprints, behaviour analytics and Growth Leader assessments. I owned the Sprint module across the Angular apps and its end-to-end tests, and built the assessment PDF reports.",
+      "Leadership development platform used by hundreds of leaders at 3M, Gojek and Schneider Electric: growth sprints, behaviour analytics and Growth Leader assessments. I owned the Sprint module across the Angular apps and its end-to-end tests, and built the assessment PDF reports.",
     category: "work",
     tags: ["Angular", "TypeScript", "Scala Play", "Cypress", "ApexCharts"],
     featured: true,
