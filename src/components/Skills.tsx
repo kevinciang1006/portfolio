@@ -4,7 +4,7 @@ import { WindowBar } from "./WindowBar";
 export function Skills() {
   return (
     <section className="win split__skills" aria-labelledby="skills-h">
-      <WindowBar title="skills.json" />
+      <WindowBar title="Skills" />
       <div className="win__body skills">
         <h2 id="skills-h">Skills</h2>
         {skills.map((g) => (

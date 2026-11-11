@@ -6,7 +6,7 @@ import { WindowBar } from "./WindowBar";
 export function Experience({ onOpen }: { onOpen: OpenProject }) {
   return (
     <section id="experience" className="win split__exp" aria-labelledby="exp-h">
-      <WindowBar title="experience.log" />
+      <WindowBar title="Experience" />
       <div className="win__body">
         <h2 id="exp-h">Experience</h2>
         <ol className="timeline">

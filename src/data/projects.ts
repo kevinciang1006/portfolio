@@ -128,7 +128,7 @@ const allProjects: Project[] = [
     name: "Maximize Play · Car Audio Network",
     url: "https://caraudio.network",
     description:
-      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. I worked at Maximize Play from 2017 to 2021.",
+      "Competition platform for car-audio events: registering cars and competitors, judges scoring each category on score sheets, leaderboards, sponsors and news. Angular admin on a Laravel API. In use since 2019, with around 300 events run on it so far. I worked at Maximize Play from 2017 to 2021.",
     category: "work",
     tags: ["Angular", "Fuse", "NgRx", "Chart.js", "Laravel", "Passport", "MySQL"],
     featured: false,

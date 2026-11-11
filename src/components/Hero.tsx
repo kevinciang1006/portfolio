@@ -24,7 +24,7 @@ export function Hero({ onOpen }: { onOpen: OpenProject }) {
     <>
       <section className="hero" aria-label="Introduction">
         <div className="win win--hero" data-boot="1" style={{ "--i": 1 } as CSSProperties}>
-          <WindowBar title="about.md" />
+          <WindowBar title="About" />
           <div className="hero__body">
             <h1>{profile.name}</h1>
             <p className="hero__tagline">{profile.tagline}</p>
